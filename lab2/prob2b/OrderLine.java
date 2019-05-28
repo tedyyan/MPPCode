@@ -1,13 +1,17 @@
-package mpp.gourp2.lab2.prob2B;
+package mpp.lab2.prob2b;
 
-class OrderLine{
+import java.util.LinkedList;
+import java.util.List;
+
+public class OrderLine {
+
 	private Integer linenum;
 	private Integer price;
 	private Integer quatity;
 	private List<Order> orders;
 
 	public OrderLine(Order order){
-		this.orders = new LinckedList();
+		this.orders = new LinkedList();
 		addOrder(order);
 	}
 
@@ -33,5 +37,4 @@ class OrderLine{
 	public void setQuatity(Integer quatity){
 		this.quatity = quatity;
 	}
-
 }
