@@ -8,15 +8,10 @@ public class OrderLine {
 	private Integer linenum;
 	private Integer price;
 	private Integer quatity;
-	private List<Order> orders;
+	private Order order;
 
-	public OrderLine(Order order){
-		this.orders = new LinkedList();
-		addOrder(order);
-	}
-
-	public void addOrder(Order order){
-		this.orders.add(order);
+	OrderLine(Order order){
+		this.order = order;
 	}
 
 	public Integer getLinenum(){
@@ -36,5 +31,8 @@ public class OrderLine {
 	}
 	public void setQuatity(Integer quatity){
 		this.quatity = quatity;
+	}
+	public Order getOrder() {
+		return order;
 	}
 }
