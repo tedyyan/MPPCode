@@ -1,12 +1,16 @@
 class Order{
+	
 	private Long orderNum;
 	private String orderDate;
-	private OrderLine orderLine;
+	private List<OrderLine> orderLines;
 
-	public Order(OrderLine orderLine){
-		this.orderLine = orderLine;
+	public Order(){
+		this.orderLines = new LinkedList<OrderLine>();
 	}
-
+	public void addOrderLine(OrderLine orderLine) {
+		orderLines.add(orderLine);
+	}
+	
 	public Long getOrderNum(){
 		return orderNum;
 	}
@@ -18,5 +22,8 @@ class Order{
 	}
 	public void setOrderDate(String orderDate){
 		this.orderDate = orderDate;
+	}
+	public List<OrderLine> getOrderLines(){
+		return orderLines;
 	}
 }
