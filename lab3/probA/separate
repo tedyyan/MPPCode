@@ -1,5 +1,0 @@
-it doesn't make sense.
-Because If Circle inherit Cylinder.
-it has height attribute and computeVolume operation.
-It's redundancy attribute.
-Circle doesn't height attribute need operation computeVolume.
