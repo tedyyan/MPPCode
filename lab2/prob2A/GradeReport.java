@@ -4,7 +4,7 @@ class GradeReport{
 	private String grade;
 	private Student student;
 
-	public GradeReport(Student student){
+	GradeReport(Student student){
 		this.student = student;
 	}
 
