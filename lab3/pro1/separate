@@ -1,0 +1,6 @@
+p1.equals(p2)? false
+Because p1 is subclass of p1. It has his own operation, attributes , etc.
+So p1 is different from p2. p1 doesn't  equal p2.
+p2.equals(p1)? true
+p2 is superclass. p1 extends all of operations and attributes. So p1 has p2's  all of operations and attributes.
+So p2 equals p1
