@@ -1,6 +1,6 @@
 package prob4.properties;
 
-public interface RentConstValue {
+public abstract class RentConstValue {
 	
 	static final double HouseRent = 0.1;
 	static final double ConnRent = 400;
