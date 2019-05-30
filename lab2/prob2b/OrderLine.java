@@ -1,7 +1,4 @@
-package mpp.lab2.prob2b;
 
-import java.util.LinkedList;
-import java.util.List;
 
 public class OrderLine {
 

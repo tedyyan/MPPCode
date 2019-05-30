@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.List;
+
 class Order{
 	
 	private Long orderNum;
