@@ -10,6 +10,6 @@ public class Cylinder {
     }
 
     public double computeVolume() {
-        return circle.getRadius() * height;
+        return circle.computeArea() * height;
     }
 }
