@@ -66,9 +66,10 @@ public class MainWindow extends Stage implements LibWindow{
 		
 	}
 	
+
+	
 	private void checkoutBook(MenuBar mainMenu) {
 		Menu memberMenu = new Menu("CheckOut");
-		
 		
 		mainMenu.getMenus().add( memberMenu);
 	}
@@ -76,6 +77,33 @@ public class MainWindow extends Stage implements LibWindow{
 	private void addMemberMenu(MenuBar mainMenu) {
 		Menu memberMenu = new Menu("Member");
 		
+		MenuItem listMember = new MenuItem("List All Member");
+		listMember.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+            	
+            }
+        });
+		
+		
+		MenuItem addNewMember = new MenuItem("Add New Member");
+		addNewMember.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+            	
+            }
+        });
+		
+		MenuItem showMememberBookHis = new MenuItem("Add Member History");
+		showMememberBookHis.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+            	
+            }
+        });
+		
+		
+		memberMenu.getItems().addAll(listMember, addNewMember, showMememberBookHis);
 		
 		mainMenu.getMenus().add( memberMenu);
 	}
