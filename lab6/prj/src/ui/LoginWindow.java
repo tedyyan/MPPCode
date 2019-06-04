@@ -99,13 +99,14 @@ public class LoginWindow extends Stage implements LibWindow {
         			c.login(userTextField.getText().trim(), pwBox.getText().trim());
         			messageBar.setFill(Start.Colors.green);
              	    messageBar.setText("Login successful");
-             	    INSTANCE.hide();
+             	 
              	    MainWindow  mainWindow  = MainWindow.INSTANCE;
              	   if(!mainWindow.isInitialized()) {
              		 mainWindow.init();
  	       			}
              	
              	  mainWindow.show();
+             	  INSTANCE.close();
 	             	    
         		} catch(LoginException ex) {
         			messageBar.setFill(Start.Colors.red);

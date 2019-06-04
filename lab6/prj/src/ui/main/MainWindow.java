@@ -47,6 +47,7 @@ public class MainWindow extends Stage implements LibWindow{
 		setUser(SystemController.currentUser);
 		
 		VBox topContainer = new VBox();
+	
 		topContainer.setId("top-container");
 		MenuBar mainMenu = new MenuBar();
 		
@@ -57,21 +58,54 @@ public class MainWindow extends Stage implements LibWindow{
 			addBoosMenu(mainMenu);
 		} else if (this.user.getAuthorization() == Auth.BOTH) {
 			checkoutBook(mainMenu);
+			addMemberMenu(mainMenu);
+			addBoosMenu(mainMenu);
 		}
-		
+		otherMenu(mainMenu);
 	
 		topContainer.getChildren().add(mainMenu);
+	
 		Scene scene = new Scene(topContainer, 420, 375);
 	
 		setScene(scene);
 		
 	}
 	
+	private void otherMenu(MenuBar mainMenu) {
+		
+	  Menu memberMenu = new Menu("Other");
+		
+		MenuItem exit = new MenuItem("Exit");
+		exit.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+            
+    			if(!LoginWindow.INSTANCE.isInitialized()) {
+    				LoginWindow.INSTANCE.init();
+    			}
+    			LoginWindow.INSTANCE.clear();
+    			LoginWindow.INSTANCE.show();
+    			INSTANCE.close();
+            }
+        });
+		
+		memberMenu.getItems().addAll(exit);
+		mainMenu.getMenus().add( memberMenu);
+	}
 
 	
 	private void checkoutBook(MenuBar mainMenu) {
 		Menu memberMenu = new Menu("CheckOut");
 		
+		MenuItem checkOut = new MenuItem("Check Out");
+		checkOut.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+            	
+            }
+        });
+		
+		memberMenu.getItems().addAll(checkOut);
 		mainMenu.getMenus().add( memberMenu);
 	}
 	
@@ -112,7 +146,7 @@ public class MainWindow extends Stage implements LibWindow{
 	private void addBoosMenu(MenuBar mainMenu) {
 		Menu booksMenu = new Menu("Books");
 		
-		MenuItem addBook = new MenuItem("addBook");
+		MenuItem addBook = new MenuItem("Add Book");
 		addBook.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
@@ -120,7 +154,28 @@ public class MainWindow extends Stage implements LibWindow{
             }
         });
 		
+		MenuItem addBookCopy = new MenuItem("Add Book Copy");
+		addBookCopy.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+            	
+            }
+        });
+		
+		MenuItem allBooks = new MenuItem("Lisr All Books");
+		allBooks.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+            	
+            }
+        });
+		
+		
+		
+		
+		booksMenu.getItems().add(allBooks);
 		booksMenu.getItems().add(addBook);
+		booksMenu.getItems().add(addBookCopy);
 		mainMenu.getMenus().add(booksMenu);
 	}
 

@@ -134,7 +134,7 @@ public class Start extends Application {
 				AllMembersWindow.INSTANCE.show();
             }
 		});	
-		optionsMenu.getItems().addAll(login, bookIds, memberIds);
+		optionsMenu.getItems().addAll(login);
 
 		mainMenu.getMenus().addAll(optionsMenu);
 		Scene scene = new Scene(topContainer, 420, 375);
