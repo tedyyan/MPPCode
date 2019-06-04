@@ -28,6 +28,7 @@ import javafx.stage.Stage;
 import ui.LibWindow;
 import ui.LoginWindow;
 import ui.book.AddBookCopysDialogController;
+import ui.bookdue.BookDueController;
 import ui.member.PersonEditDialogController;
 
 public class MainWindow extends Stage implements LibWindow {
@@ -67,12 +68,15 @@ public class MainWindow extends Stage implements LibWindow {
 	private void initComponent(AnchorPane root) {
 		  
 	        Label userName = new Label("User Name: " + user.getId());
-	        userName.setPadding(new Insets(40,10,10,10));	 
+//	        userName.setPadding(new Insets(40,10,10,10));	 
+	        userName.setLayoutY(40);
+	        userName.setLayoutX(15);
 	        String userTypeString = user.getAuthorization().toString();
 	        userTypeString = userTypeString.equals("BOTH") ? "SUPER ADMIN" : userTypeString;
 	        Label userType = new Label("User Type: " + userTypeString);
-	        userType.setMinSize(200, 100);
-	        userType.setPadding(new Insets(40,10,10,10));
+//	        userType.setMinSize(200, 100);
+	        userType.setLayoutY(60);
+	        userType.setLayoutX(15);
 	        root.getChildren().add(userName);
 	        root.getChildren().add(userType);
 		
@@ -102,6 +106,8 @@ public class MainWindow extends Stage implements LibWindow {
 
 		mainMenu.setMinHeight(30);
 		mainMenu.setMinWidth(420);
+		
+		mainMenu.setMaxWidth(9999);
 		topContainer.getChildren().add(mainMenu);
 
 		root.getChildren().add(topContainer);
@@ -141,7 +147,20 @@ public class MainWindow extends Stage implements LibWindow {
 			}
 		});
 
+
+
+		MenuItem checkBookDue = new MenuItem("Check Book Due");
+		checkBookDue.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent e) {
+				BookDueController.showBookDueController();
+			}
+		});
+
+		
 		memberMenu.getItems().addAll(checkOut);
+		memberMenu.getItems().addAll(checkBookDue);
+		
 		mainMenu.getMenus().add(memberMenu);
 	}
 
