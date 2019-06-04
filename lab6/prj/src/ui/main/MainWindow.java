@@ -1,4 +1,4 @@
-package ui;
+package ui.main;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -11,6 +11,8 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import ui.LibWindow;
+import ui.LoginWindow;
 
 public class MainWindow extends Stage implements LibWindow{
 	public static final MainWindow INSTANCE = new MainWindow();

@@ -19,6 +19,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import ui.main.MainWindow;
 
 public class LoginWindow extends Stage implements LibWindow {
 	public static final LoginWindow INSTANCE = new LoginWindow();
@@ -85,24 +86,25 @@ public class LoginWindow extends Stage implements LibWindow {
         loginBtn.setOnAction(new EventHandler<ActionEvent>() {
         	@Override
         	public void handle(ActionEvent e) {
-        		
-        		try {
-        			ControllerInterface c = new SystemController();
-        			c.login(userTextField.getText().trim(), pwBox.getText().trim());
-        			
-        			messageBar.setFill(Start.Colors.green);
-             	    messageBar.setText("Login successful");
-             	    INSTANCE.hide();
-             	   if(!MainWindow.INSTANCE.isInitialized()) {
-             		  MainWindow.INSTANCE.init();
+        		 INSTANCE.hide();
+        		 if(!MainWindow.INSTANCE.isInitialized()) {
+            		  MainWindow.INSTANCE.init();
 	       			}
-             	 //  MainWindow.INSTANCE.clear();
-             	   MainWindow.INSTANCE.show();
-	             	    
-        		} catch(LoginException ex) {
-        			messageBar.setFill(Start.Colors.red);
-        			messageBar.setText("Error! " + ex.getMessage());
-        		}
+            	 //  MainWindow.INSTANCE.clear();
+            	   MainWindow.INSTANCE.show();
+//        		try {
+//        			ControllerInterface c = new SystemController();
+//        			c.login(userTextField.getText().trim(), pwBox.getText().trim());
+//        			
+//        			messageBar.setFill(Start.Colors.green);
+//             	    messageBar.setText("Login successful");
+//             	    INSTANCE.hide();
+//             	  
+//	             	    
+//        		} catch(LoginException ex) {
+//        			messageBar.setFill(Start.Colors.red);
+//        			messageBar.setText("Error! " + ex.getMessage());
+//        		}
         	   
         	}
         });
