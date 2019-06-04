@@ -1,9 +1,16 @@
 package ui.main;
 
+import java.io.IOException;
+
+import business.SystemController;
+import dataaccess.Auth;
+import dataaccess.User;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -17,46 +24,75 @@ import ui.LoginWindow;
 public class MainWindow extends Stage implements LibWindow{
 	public static final MainWindow INSTANCE = new MainWindow();
 
+	private User user;
+	
+	
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	private boolean isInitialized = false;
 	private MainWindow () {}
 	
 	@Override
 	public void init() {
 		// TODO Auto-generated method stub
-		
-		    GridPane grid = new GridPane();
-	        grid.setId("top-container");
-	        grid.setAlignment(Pos.CENTER);
-	        grid.setHgap(10);
-	        grid.setVgap(10);
-	        grid.setPadding(new Insets(25, 25, 25, 25));
+
+		setUser(SystemController.currentUser);
 		
 		VBox topContainer = new VBox();
 		topContainer.setId("top-container");
 		MenuBar mainMenu = new MenuBar();
 		
-		Menu optionsMenu = new Menu("Options");
-		MenuItem login = new MenuItem("Login");
+		if (this.user.getAuthorization() == Auth.LIBRARIAN) {
+			checkoutBook(mainMenu);
+		} else if (this.user.getAuthorization() == Auth.ADMIN){
+			addMemberMenu(mainMenu);
+			addBoosMenu(mainMenu);
+		} else if (this.user.getAuthorization() == Auth.BOTH) {
+			checkoutBook(mainMenu);
+		}
 		
-		login.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent e) {
-            	//hideAllWindows();
-    			if(!LoginWindow.INSTANCE.isInitialized()) {
-    				LoginWindow.INSTANCE.init();
-    			}
-    			LoginWindow.INSTANCE.clear();
-    			LoginWindow.INSTANCE.show();
-            }
-        });			
-		
-		optionsMenu.getItems().addAll(login);
-		mainMenu.getMenus().addAll(optionsMenu);
-		
+	
+		topContainer.getChildren().add(mainMenu);
 		Scene scene = new Scene(topContainer, 420, 375);
-		
+	
 		setScene(scene);
 		
+	}
+	
+	private void checkoutBook(MenuBar mainMenu) {
+		Menu memberMenu = new Menu("CheckOut");
+		
+		
+		mainMenu.getMenus().add( memberMenu);
+	}
+	
+	private void addMemberMenu(MenuBar mainMenu) {
+		Menu memberMenu = new Menu("Member");
+		
+		
+		mainMenu.getMenus().add( memberMenu);
+	}
+	
+	private void addBoosMenu(MenuBar mainMenu) {
+		Menu booksMenu = new Menu("Books");
+		
+		MenuItem addBook = new MenuItem("addBook");
+		addBook.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+            	
+            }
+        });
+		
+		booksMenu.getItems().add(addBook);
+		mainMenu.getMenus().add(booksMenu);
 	}
 
 	@Override
