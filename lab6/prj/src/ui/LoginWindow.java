@@ -115,10 +115,25 @@ public class LoginWindow extends Stage implements LibWindow {
         		Start.primStage().show();
         	}
         });
+        
+        
         HBox hBack = new HBox(10);
         hBack.setAlignment(Pos.BOTTOM_LEFT);
         hBack.getChildren().add(backBtn);
         grid.add(hBack, 0, 7);
+        
+        
+        Button backBtn1 = new Button("Teddy Test");
+        backBtn1.setOnAction(new EventHandler<ActionEvent>() {
+        	@Override
+        	public void handle(ActionEvent e) {
+//        		Start.hideAllWindows();
+//        		Start.primStage().show();
+        	}
+        });
+        grid.add(backBtn1, 2, 7);
+        
+        
         Scene scene = new Scene(grid);
         scene.getStylesheets().add(getClass().getResource("library.css").toExternalForm());
         setScene(scene);
