@@ -23,6 +23,8 @@ public class DataAccessFacade implements DataAccess {
 	
 	public static final String OUTPUT_DIR = System.getProperty("user.dir") 
 			+ "\\src\\dataaccess\\storage";
+	public static final String OUTPUT_DIR1 = System.getProperty("user.dir") 
+			+ "/src/dataaccess/storage";
 	public static final String DATE_PATTERN = "MM/dd/yyyy";
 	
 	//implement: other save operations
@@ -37,6 +39,7 @@ public class DataAccessFacade implements DataAccess {
 	public  HashMap<String,Book> readBooksMap() {
 		//Returns a Map with name/value pairs being
 		//   isbn -> Book
+		
 		return (HashMap<String,Book>) readFromStorage(StorageType.BOOKS);
 	}
 	
@@ -81,7 +84,7 @@ public class DataAccessFacade implements DataAccess {
 	static void saveToStorage(StorageType type, Object ob) {
 		ObjectOutputStream out = null;
 		try {
-			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR, type.toString());
+			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR1, type.toString());
 			out = new ObjectOutputStream(Files.newOutputStream(path));
 			out.writeObject(ob);
 		} catch(IOException e) {
@@ -99,7 +102,7 @@ public class DataAccessFacade implements DataAccess {
 		ObjectInputStream in = null;
 		Object retVal = null;
 		try {
-			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR, type.toString());
+			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR1, type.toString());
 			in = new ObjectInputStream(Files.newInputStream(path));
 			retVal = in.readObject();
 		} catch(Exception e) {

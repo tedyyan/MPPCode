@@ -23,6 +23,12 @@ import javafx.stage.Stage;
 public class LoginWindow extends Stage implements LibWindow {
 	public static final LoginWindow INSTANCE = new LoginWindow();
 	
+	private static Stage[] allWindows = { 
+			MainWindow.INSTANCE,
+		};
+	
+	
+	
 	private boolean isInitialized = false;
 	
 	public boolean isInitialized() {
@@ -75,14 +81,24 @@ public class LoginWindow extends Stage implements LibWindow {
         messageBox.getChildren().add(messageBar);;
         grid.add(messageBox, 1, 6);
         
+        
         loginBtn.setOnAction(new EventHandler<ActionEvent>() {
         	@Override
         	public void handle(ActionEvent e) {
+        		
         		try {
         			ControllerInterface c = new SystemController();
         			c.login(userTextField.getText().trim(), pwBox.getText().trim());
+        			
         			messageBar.setFill(Start.Colors.green);
              	    messageBar.setText("Login successful");
+             	    INSTANCE.hide();
+             	   if(!MainWindow.INSTANCE.isInitialized()) {
+             		  MainWindow.INSTANCE.init();
+	       			}
+             	 //  MainWindow.INSTANCE.clear();
+             	   MainWindow.INSTANCE.show();
+	             	    
         		} catch(LoginException ex) {
         			messageBar.setFill(Start.Colors.red);
         			messageBar.setText("Error! " + ex.getMessage());
