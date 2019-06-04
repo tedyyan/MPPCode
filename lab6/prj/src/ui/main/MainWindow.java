@@ -20,6 +20,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import ui.LibWindow;
 import ui.LoginWindow;
+import ui.member.PersonEditDialogController;
 
 public class MainWindow extends Stage implements LibWindow{
 	public static final MainWindow INSTANCE = new MainWindow();
@@ -90,11 +91,11 @@ public class MainWindow extends Stage implements LibWindow{
 		addNewMember.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-            	
+            	PersonEditDialogController.showMe();
             }
         });
 		
-		MenuItem showMememberBookHis = new MenuItem("Add Member History");
+		MenuItem showMememberBookHis = new MenuItem("Show Member History");
 		showMememberBookHis.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
