@@ -19,7 +19,11 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import ui.main.MainWindow;
+
 import ui.member.PersonEditDialogController;
+
 
 public class LoginWindow extends Stage implements LibWindow {
 	public static final LoginWindow INSTANCE = new LoginWindow();
@@ -87,18 +91,21 @@ public class LoginWindow extends Stage implements LibWindow {
         	@Override
         	public void handle(ActionEvent e) {
         		
+        		
+            	 //  MainWindow.INSTANCE.clear();
+            	
         		try {
         			ControllerInterface c = new SystemController();
         			c.login(userTextField.getText().trim(), pwBox.getText().trim());
-        			
         			messageBar.setFill(Start.Colors.green);
              	    messageBar.setText("Login successful");
              	    INSTANCE.hide();
-             	   if(!MainWindow.INSTANCE.isInitialized()) {
-             		  MainWindow.INSTANCE.init();
-	       			}
-             	 //  MainWindow.INSTANCE.clear();
-             	   MainWindow.INSTANCE.show();
+             	    MainWindow  mainWindow  = MainWindow.INSTANCE;
+             	   if(!mainWindow.isInitialized()) {
+             		 mainWindow.init();
+ 	       			}
+             	
+             	  mainWindow.show();
 	             	    
         		} catch(LoginException ex) {
         			messageBar.setFill(Start.Colors.red);
