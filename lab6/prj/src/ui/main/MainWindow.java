@@ -29,6 +29,7 @@ import ui.LibWindow;
 import ui.LoginWindow;
 import ui.book.AddBookCopysDialogController;
 import ui.bookdue.BookDueController;
+import ui.member.LibraryMemberOverviewController;
 import ui.member.PersonEditDialogController;
 
 public class MainWindow extends Stage implements LibWindow {
@@ -171,7 +172,7 @@ public class MainWindow extends Stage implements LibWindow {
 		listMember.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
-
+				LibraryMemberOverviewController.showMemberOverview();
 			}
 		});
 
