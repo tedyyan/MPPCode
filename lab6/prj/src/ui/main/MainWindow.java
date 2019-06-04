@@ -26,6 +26,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import ui.LibWindow;
 import ui.LoginWindow;
+import ui.book.AddBookCopysDialogController;
 import ui.member.PersonEditDialogController;
 
 public class MainWindow extends Stage implements LibWindow {
@@ -52,7 +53,7 @@ public class MainWindow extends Stage implements LibWindow {
 		setUser(SystemController.currentUser);
 		BorderPane root = new BorderPane();
 
-		root.setPadding(new Insets(25, 25, 25, 25));
+//		root.setPadding(new Insets(25, 25, 25, 25));
 
 		initMenu(root);
 		initComponent(root);
@@ -64,12 +65,20 @@ public class MainWindow extends Stage implements LibWindow {
 	
 	private void initComponent(BorderPane root) {
 		    VBox centerControler = new VBox();
+//		    centerControler.setHgap(10);
+//		    centerControler.setVgap(10);
 		    centerControler.setAlignment(Pos.CENTER);
 
 	        Label userName = new Label("User Name:" + user.getId());
 	        centerControler.getChildren().add(userName);
-
+	        userName.setMinSize(200, 100);
+	      
+	        userName.setPadding(new Insets(100,10,0,0));
+	        
+	        
 	        Label userType = new Label("User Name:" + user.getAuthorization().toString());
+	        userType.setMinSize(200, 100);
+	        userType.setPadding(new Insets(10,10,10,10));
 	        centerControler.getChildren().add(userType);
 	       
 //	        TextField userTextField = new TextField();
@@ -77,7 +86,7 @@ public class MainWindow extends Stage implements LibWindow {
 //	        //userTextField.setPrefWidth(30);
 //	        grid.add(userTextField, 1, 1);
 	        
-	        root.getChildren().add(centerControler);
+	        root.getChildren().add(userName);
 		
 	}
 
@@ -195,7 +204,7 @@ public class MainWindow extends Stage implements LibWindow {
 		addBookCopy.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
-
+					AddBookCopysDialogController.showAddBookCopyDialog();
 			}
 		});
 
