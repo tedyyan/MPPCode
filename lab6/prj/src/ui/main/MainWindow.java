@@ -17,6 +17,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -51,7 +52,7 @@ public class MainWindow extends Stage implements LibWindow {
 	public void init() {
 		// TODO Auto-generated method stub
 		setUser(SystemController.currentUser);
-		BorderPane root = new BorderPane();
+		AnchorPane root = new AnchorPane();
 
 //		root.setPadding(new Insets(25, 25, 25, 25));
 
@@ -63,34 +64,21 @@ public class MainWindow extends Stage implements LibWindow {
 
 	}
 	
-	private void initComponent(BorderPane root) {
-		    VBox centerControler = new VBox();
-//		    centerControler.setHgap(10);
-//		    centerControler.setVgap(10);
-		    centerControler.setAlignment(Pos.CENTER);
-
-	        Label userName = new Label("User Name:" + user.getId());
-	        centerControler.getChildren().add(userName);
-	        userName.setMinSize(200, 100);
-	      
-	        userName.setPadding(new Insets(100,10,0,0));
-	        
-	        
-	        Label userType = new Label("User Name:" + user.getAuthorization().toString());
+	private void initComponent(AnchorPane root) {
+		  
+	        Label userName = new Label("User Name: " + user.getId());
+	        userName.setPadding(new Insets(40,10,10,10));	 
+	        String userTypeString = user.getAuthorization().toString();
+	        userTypeString = userTypeString.equals("BOTH") ? "SUPER ADMIN" : userTypeString;
+	        Label userType = new Label("User Type: " + userTypeString);
 	        userType.setMinSize(200, 100);
-	        userType.setPadding(new Insets(10,10,10,10));
-	        centerControler.getChildren().add(userType);
-	       
-//	        TextField userTextField = new TextField();
-//	        //userTextField.setPrefColumnCount(10);
-//	        //userTextField.setPrefWidth(30);
-//	        grid.add(userTextField, 1, 1);
-	        
+	        userType.setPadding(new Insets(40,10,10,10));
 	        root.getChildren().add(userName);
+	        root.getChildren().add(userType);
 		
 	}
 
-	private void initMenu(BorderPane root) {
+	private void initMenu(AnchorPane root) {
 		
 
 		
