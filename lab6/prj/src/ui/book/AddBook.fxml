@@ -9,7 +9,7 @@
 	maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
 	prefHeight="244.0" prefWidth="447.0" text="add book copy"
 	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="ui.book.AddBookCopysDialogController">
+	fx:controller="ui.book.AddBookDialogController">
 	<content>
 		<AnchorPane minHeight="0.0" minWidth="0.0"
 			prefHeight="196.0" prefWidth="445.0">

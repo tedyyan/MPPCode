@@ -1,14 +1,14 @@
 package ui.book;
 
+import java.io.IOException;
+
 import business.Book;
 import business.BookBizService;
 import business.BookBizServiceInterface;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
@@ -57,6 +57,7 @@ public class AddBookCopysDialogController {
             	return;
             }
             book.addCopy();
+            bookBizService.saveBook(book);
             resultField.setText("book copy add success!");
 
     }
@@ -66,7 +67,42 @@ public class AddBookCopysDialogController {
      */
     @FXML
     private void handleDone() {
+    	isOkClicked = true;
         dialogStage.close();
     }
 
+    private boolean isOkClicked = false;
+    private boolean isOkClicked() {
+    	return isOkClicked;
+    }
+    public static boolean showAddBookCopyDialog() {
+        try {
+            // Load the fxml file and create a new stage for the popup dialog.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Start.class.getResource("book/AddBookCopys.fxml"));
+            AnchorPane page = (AnchorPane) loader.load();
+
+            // Create the dialog Stage.
+            Stage dialogStage = new Stage();
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(Start.primStage());
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            // Set the person into the controller.
+            AddBookCopysDialogController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            
+            // Set the dialog icon.
+            dialogStage.getIcons().add(new Image("file:resources/images/edit.png"));
+
+            // Show the dialog and wait until the user closes it
+            dialogStage.showAndWait();
+
+            return controller.isOkClicked();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

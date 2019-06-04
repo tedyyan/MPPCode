@@ -1,6 +1,5 @@
 package business;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 import dataaccess.DataAccess;
@@ -8,6 +7,8 @@ import dataaccess.DataAccessFacade;
 
 public class BookBizService implements BookBizServiceInterface{
 
+	DataAccess dataAccess = new DataAccessFacade();
+	
 	private BookBizService() {
 		// TODO Auto-generated constructor stub
 	}
@@ -20,7 +21,7 @@ public class BookBizService implements BookBizServiceInterface{
 	@Override
 	public Book getBookByISBN(String isbn) {
 		// TODO Auto-generated method stub
-		DataAccess dataAccess = new DataAccessFacade();
+		
 		HashMap<String,Book> booksMap = dataAccess.readBooksMap();
 		if(booksMap == null) {
 			System.out.println("dataAccess.readBooksMap() is null");
@@ -28,6 +29,12 @@ public class BookBizService implements BookBizServiceInterface{
 		}
 		Book book = booksMap.get(isbn);
 		return book;
+	}
+
+	@Override
+	public void saveBook(Book book) {
+		// DataAccess dataAccess = new DataAccessFacade();
+		dataAccess.saveNewBook(book);
 	}
 
 }
