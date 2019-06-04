@@ -2,6 +2,7 @@ package ui.member;
 
 import java.io.IOException;
 
+import business.Address;
 import business.LibraryMember;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -164,6 +165,11 @@ public class PersonEditDialogController {
             return false;
         }
     }
+    
+    public static boolean showMe() {
+    	LibraryMember temp = new LibraryMember("", "", "", "", new Address("", "", "", ""));
+    	return showPersonEditDialog(temp);
+    }
 	/**
      * Opens a dialog to edit details for the specified person. If the user
      * clicks OK, the changes are saved into the provided person object and true
@@ -172,11 +178,11 @@ public class PersonEditDialogController {
      * @param person the person object to be edited
      * @return true if the user clicked OK, false otherwise.
      */
-    public boolean showPersonEditDialog(LibraryMember person) {
+    public static boolean showPersonEditDialog(LibraryMember person) {
         try {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Start.class.getResource("ui/member/PersonEditDialog.fxml"));
+            loader.setLocation(Start.class.getResource("member/PersonEditDialog.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
 
             // Create the dialog Stage.

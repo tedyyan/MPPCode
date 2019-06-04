@@ -19,6 +19,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import ui.member.PersonEditDialogController;
 
 public class LoginWindow extends Stage implements LibWindow {
 	public static final LoginWindow INSTANCE = new LoginWindow();
@@ -129,6 +130,7 @@ public class LoginWindow extends Stage implements LibWindow {
         	public void handle(ActionEvent e) {
 //        		Start.hideAllWindows();
 //        		Start.primStage().show();
+        		PersonEditDialogController.showMe();
         	}
         });
         grid.add(backBtn1, 2, 7);
