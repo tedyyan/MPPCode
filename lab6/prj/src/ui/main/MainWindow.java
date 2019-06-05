@@ -1,7 +1,10 @@
 package ui.main;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 
+import business.ControllerInterface;
 import business.SystemController;
 import dataaccess.Auth;
 import dataaccess.User;
@@ -25,6 +28,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import ui.AllBooksWindow;
 import ui.LibWindow;
 import ui.LoginWindow;
 import ui.book.AddBookCopysDialogController;
@@ -65,6 +69,8 @@ public class MainWindow extends Stage implements LibWindow {
 		Scene scene = new Scene(root, 420, 375);
 
 		setScene(scene);
+		
+		
 
 	}
 	
@@ -188,15 +194,9 @@ public class MainWindow extends Stage implements LibWindow {
 			}
 		});
 
-		MenuItem showMememberBookHis = new MenuItem("Show Member History");
-		showMememberBookHis.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent e) {
+		
 
-			}
-		});
-
-		memberMenu.getItems().addAll(listMember, addNewMember, showMememberBookHis);
+		memberMenu.getItems().addAll(listMember, addNewMember);
 
 		mainMenu.getMenus().add(memberMenu);
 	}
@@ -224,7 +224,19 @@ public class MainWindow extends Stage implements LibWindow {
 		allBooks.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
-
+				
+				if(!AllBooksWindow.INSTANCE.isInitialized()) {
+					AllBooksWindow.INSTANCE.init();
+				}
+				ControllerInterface ci = new SystemController();
+				List<String> ids = ci.allBookIds();
+				Collections.sort(ids);
+				StringBuilder sb = new StringBuilder();
+				for(String s: ids) {
+					sb.append(s + "\n");
+				}
+				AllBooksWindow.INSTANCE.setData(sb.toString());
+				AllBooksWindow.INSTANCE.show();
 			}
 		});
 
