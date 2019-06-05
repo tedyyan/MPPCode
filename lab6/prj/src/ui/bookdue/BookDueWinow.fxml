@@ -5,21 +5,17 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="527.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.bookdue.BookDueController">
+<AnchorPane prefHeight="418.0" prefWidth="583.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.bookdue.BookDueController">
    <children>
       <Label layoutX="60.0" layoutY="63.0" text="ISBN" />
-      <TextField fx:id="isbntextField" layoutX="173.0" layoutY="58.0" />
-      <Button layoutX="397.0" layoutY="58.0" mnemonicParsing="false" onAction="#search" text="Search" />
-      <TableView layoutX="34.0" layoutY="116.0" prefHeight="75.0" prefWidth="486.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="ISBN" />
-          <TableColumn prefWidth="77.0" text="C2" />
-        </columns>
-      </TableView>
-      <TableView layoutX="34.0" layoutY="249.0" prefHeight="229.0" prefWidth="486.0">
+      <TextField fx:id="isbntextField" layoutX="107.0" layoutY="58.0" prefHeight="27.0" prefWidth="343.0" />
+      <Button layoutX="459.0" layoutY="58.0" mnemonicParsing="false" onAction="#search" text="Search" />
+      <TableView layoutX="38.0" layoutY="125.0" prefHeight="229.0" prefWidth="486.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="ISBN" />
-            <TableColumn prefWidth="77.0" text="C2" />
+            <TableColumn prefWidth="118.0" text="ISBN" />
+            <TableColumn prefWidth="115.0" text="Title" />
+            <TableColumn prefWidth="123.0" text="Copy Number" />
+            <TableColumn prefWidth="129.0" text="Due Date" />
          </columns>
       </TableView>
    </children>
