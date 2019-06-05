@@ -248,7 +248,7 @@ public class LibraryMemberOverviewController {
 	}
 	private ObservableList<LibraryMember> getLibraryMemberData(String id) {
 		
-		personData.addAll(MemberBizService.getInstance().FindPersonByMemberID(id));
+		personData.addAll(MemberBizService.getInstance().FindPersonLikeByMemberID(id));
 		return personData;
 	}
 

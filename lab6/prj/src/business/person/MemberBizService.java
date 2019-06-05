@@ -22,15 +22,18 @@ public class MemberBizService implements MemberBizServiceInterface {
 
 	}
 
-	public Collection<LibraryMember> FindPersonByMemberID(String id) {
+	public Collection<LibraryMember> FindPersonLikeByMemberID(String id) {
 		
-		Collection<LibraryMember> rr = new ArrayList<LibraryMember>();
 		List<LibraryMember> a = getLikeByMap(data.readMemberMap(), id);
 
 		return a;
 
 	}
+	public LibraryMember FindPersonByMemberID(String id) {
+		
+		return data.readMemberMap().get(id);
 
+	}
 	public List<LibraryMember> getLikeByMap(Map<String, LibraryMember> map, String keyLike) {
 		List<LibraryMember> list = new Vector<>();
 		for (Map.Entry<String, LibraryMember> entity : map.entrySet()) {

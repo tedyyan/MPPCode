@@ -5,6 +5,7 @@ import java.util.Collection;
 import business.LibraryMember;
 
 public interface MemberBizServiceInterface {
-	public Collection<LibraryMember> FindPersonByMemberID(String id);
+	public LibraryMember FindPersonByMemberID(String id);
 	public Collection<LibraryMember> getAllPersons();
+	public Collection<LibraryMember> FindPersonLikeByMemberID(String id);
 }
