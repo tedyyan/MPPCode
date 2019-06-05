@@ -30,6 +30,10 @@ public class SystemController implements ControllerInterface {
 		currentAuth = map.get(id).getAuthorization();
 
 	}
+	
+	public static User getCurrentUser() {
+		return currentUser;
+	}
 
 	@Override
 	public List<String> allMemberIds() {

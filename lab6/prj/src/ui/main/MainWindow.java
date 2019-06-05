@@ -55,7 +55,7 @@ public class MainWindow extends Stage implements LibWindow {
 	@Override
 	public void init() {
 		// TODO Auto-generated method stub
-		setUser(SystemController.currentUser);
+		setUser(SystemController.getCurrentUser());
 		AnchorPane root = new AnchorPane();
 
 //		root.setPadding(new Insets(25, 25, 25, 25));
@@ -67,6 +67,8 @@ public class MainWindow extends Stage implements LibWindow {
 		setScene(scene);
 
 	}
+	
+	
 	
 	private void initComponent(AnchorPane root) {
 		  
