@@ -3,6 +3,8 @@ package ui.book;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import business.Author;
@@ -10,9 +12,15 @@ import business.Book;
 import business.BookBizService;
 import business.BookBizServiceInterface;
 import business.BookCopy;
+import business.CheckRecordEntry;
+import business.LibraryMember;
+import dataaccess.DataAccess;
+import dataaccess.DataAccessFacade;
+import dataaccess.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
@@ -23,22 +31,20 @@ import javafx.stage.Stage;
 import javafx.util.converter.NumberStringConverter;
 import ui.Start;
 
-public class AddBookDialogController {
+public class CheckoutDialogController {
 
 	@FXML
 	private Text resultField;
 
 	@FXML
-	private TextField authorsField;
-	@FXML
 	private TextField isbnField;
+	
 	@FXML
-	private TextField titleField;
+	private TextField memberIdField;
+	
 	@FXML
-	private TextField maxCheckoutLengthField;
-	@FXML
-	private TextField copiesNumField;
-
+	private TableView<CheckRecordEntry> checkoutRecordTableView;
+ 
 	private Stage dialogStage;
 
 	private BookBizServiceInterface bookBizService = BookBizService.getBookBizServiceInstance();
@@ -68,36 +74,24 @@ public class AddBookDialogController {
 	 */
 	@FXML
 	private void handleAdd() {
-		String authorString = authorsField.getText();
-		List<Author> authorList = new ArrayList<Author>();
-		if (authorString != null) {
-			String[] authors = authorString.split(";");
-		}
-		String maxS = maxCheckoutLengthField.getText();
-		int maxCheckoutLength = 0;
-		try {
-			maxCheckoutLength = Integer.parseInt(maxS);
-		} catch (NumberFormatException e) {
-			resultField.setText("wrong maxCheckoutLength");
-			return;
+		
+		Book book = bookBizService.getBookByISBN(isbnField.getText());
+		DataAccess dataAccess = new DataAccessFacade();
+		LibraryMember member = dataAccess.readMemberMap().get(memberIdField.getText());
+		if(book == null || member == null) {
+			resultField.setText("book or member not exit!");
+			return ;
 		}
 		
-		String copyNumString = copiesNumField.getText();
-		int copyNum = 0;
-		try {
-			copyNum = Integer.parseInt(copyNumString);
-		} catch (NumberFormatException e) {
-			resultField.setText("wrong copy Number");
-			return;
-		}
+		CheckRecordEntry recordEntry = new CheckRecordEntry();
+		recordEntry.setISBN(isbnField.getText());
+		recordEntry.setMemberID(memberIdField.getText());
+		recordEntry.setCheckOutDate(new Date());
 		
-		Book book = new Book(isbnField.getText(), titleField.getText(),
-				maxCheckoutLength, authorList);
-		for (int i = 0; i < copyNum; i++) {
-			book.addCopy();
-		}
-		bookBizService.saveBook(book);
-		resultField.setText("book save success!");
+		Date dueDate = new Date();
+		recordEntry.setDueDate(dueDate);
+		bookBizService.addCheckout(recordEntry);
+		resultField.setText("book checkout success!");
 
 	}
 
@@ -120,7 +114,7 @@ public class AddBookDialogController {
 		try {
 			// Load the fxml file and create a new stage for the popup dialog.
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Start.class.getResource("book/AddBook.fxml"));
+			loader.setLocation(Start.class.getResource("book/checkout.fxml"));
 			TitledPane page = (TitledPane) loader.load();
 
 			// Create the dialog Stage.
@@ -131,7 +125,7 @@ public class AddBookDialogController {
 			dialogStage.setScene(scene);
 
 			// Set the person into the controller.
-			AddBookDialogController controller = loader.getController();
+			CheckoutDialogController controller = loader.getController();
 			controller.setDialogStage(dialogStage);
 
 			// Set the dialog icon.

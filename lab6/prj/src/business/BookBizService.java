@@ -37,4 +37,10 @@ public class BookBizService implements BookBizServiceInterface{
 		dataAccess.saveNewBook(book);
 	}
 
+	@Override
+	public void addCheckout(CheckRecordEntry record) {
+		// TODO Auto-generated method stub
+//		dataAccess.addCheckRecord(record);
+	}
+
 }
