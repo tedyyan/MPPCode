@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import business.Author;
@@ -112,6 +113,12 @@ public class CheckoutDialogController {
 			resultField.setText("bookCopy not available!");
 			return ;
 		}
+		bookCopy.changeAvailability();
+		System.out.println(book);
+		for(BookCopy copy : book.getCopies()) {
+			System.out.println(copy);
+		}
+		
 		CheckRecordEntry recordEntry = new CheckRecordEntry(new Date(), bookCopy);
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(new Date());
@@ -121,11 +128,11 @@ public class CheckoutDialogController {
 		member.getCheckrecord().addReorceEntry(recordEntry);
 		
 		bookCopy.setCheckoutRecordEntry(recordEntry);
-		bookCopy.changeAvailability();
+		bookBizService.saveBook(book);
+		memberBizService.saveNewMember(member);
 		
 		observableList.add(recordEntry);
 		checkoutRecordTableView.setItems(observableList);
-
 		resultField.setText("book checkout success!");
 	}
 
