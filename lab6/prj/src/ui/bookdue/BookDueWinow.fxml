@@ -10,12 +10,12 @@
       <Label layoutX="60.0" layoutY="63.0" text="ISBN" />
       <TextField fx:id="isbntextField" layoutX="107.0" layoutY="58.0" prefHeight="27.0" prefWidth="343.0" />
       <Button layoutX="459.0" layoutY="58.0" mnemonicParsing="false" onAction="#search" text="Search" />
-      <TableView layoutX="38.0" layoutY="125.0" prefHeight="229.0" prefWidth="486.0">
+      <TableView fx:id="bookCopyTableView" layoutX="38.0" layoutY="125.0" prefHeight="229.0" prefWidth="486.0">
          <columns>
-            <TableColumn prefWidth="118.0" text="ISBN" />
-            <TableColumn prefWidth="115.0" text="Title" />
-            <TableColumn prefWidth="123.0" text="Copy Number" />
-            <TableColumn prefWidth="129.0" text="Due Date" />
+            <TableColumn fx:id="isbnColumn" prefWidth="118.0" text="ISBN" />
+            <TableColumn fx:id="titleColumn" prefWidth="115.0" text="Title" />
+            <TableColumn fx:id="copyNumberColumn" prefWidth="123.0" text="Copy Number" />
+            <TableColumn fx:id="dueDataColumn" prefWidth="129.0" text="Due Date" />
          </columns>
       </TableView>
    </children>
