@@ -14,6 +14,8 @@ import business.BookBizServiceInterface;
 import business.BookCopy;
 import business.CheckRecordEntry;
 import business.LibraryMember;
+import business.person.MemberBizService;
+import business.person.MemberBizServiceInterface;
 import dataaccess.DataAccess;
 import dataaccess.DataAccessFacade;
 import dataaccess.User;
@@ -48,6 +50,7 @@ public class CheckoutDialogController {
 	private Stage dialogStage;
 
 	private BookBizServiceInterface bookBizService = BookBizService.getBookBizServiceInstance();
+	private MemberBizServiceInterface memberBizService = MemberBizService.getInstance();
 
 	/**
 	 * Initializes the controller class. This method is automatically called after
@@ -76,23 +79,25 @@ public class CheckoutDialogController {
 	private void handleAdd() {
 		
 		Book book = bookBizService.getBookByISBN(isbnField.getText());
-		DataAccess dataAccess = new DataAccessFacade();
-		LibraryMember member = dataAccess.readMemberMap().get(memberIdField.getText());
+		LibraryMember member = memberBizService.FindPersonByMemberID(memberIdField.getText()); 
 		if(book == null || member == null) {
 			resultField.setText("book or member not exit!");
 			return ;
 		}
+		BookCopy bookCopy = book.getNextAvailableCopy();
 		
-		CheckRecordEntry recordEntry = new CheckRecordEntry();
-		isbnField.getText();
-		memberIdField.getText();
-		recordEntry.setCheckOutDate(new Date());
+		CheckRecordEntry recordEntry = new CheckRecordEntry(new Date(), bookCopy);
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(new Date());
+		calendar.add(Calendar.DATE, book.getMaxCheckoutLength());
+		recordEntry.setDueDate(calendar.getTime());
 		
-		Date dueDate = new Date();
-		recordEntry.setDueDate(dueDate);
-		bookBizService.addCheckout(recordEntry);
+		member.getCheckrecord().addReorceEntry(recordEntry);
+		
+		bookCopy.setCheckoutRecordEntry(recordEntry);
+		bookCopy.changeAvailability();
+		
 		resultField.setText("book checkout success!");
-
 	}
 
 	/**
