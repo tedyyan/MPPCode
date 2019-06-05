@@ -37,10 +37,6 @@ public class CheckRecordEntry implements Serializable{
 	}
 	
 	public boolean overDue(Date currenDate) {
-		int compareTo = dueDate.compareTo(currenDate);
-			if (compareTo == -1) {
-				return true;
-			}
-		return false;
+		return dueDate.before(currenDate);
 	}
 }

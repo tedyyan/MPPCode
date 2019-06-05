@@ -49,7 +49,7 @@ public class AllBooksWindow extends Stage implements LibWindow {
         	@Override
         	public void handle(ActionEvent e) {
         		Start.hideAllWindows();
-        		Start.primStage().show();
+        		
         	}
         });
         HBox hBack = new HBox(10);
