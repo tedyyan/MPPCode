@@ -52,4 +52,10 @@ public class MemberBizService implements MemberBizServiceInterface {
 		return data.readMemberMap().values();
 	}
 
+	@Override
+	public void removeMember(String id) {
+		data.removeMemberMap(id);
+		
+	}
+
 }

@@ -93,12 +93,13 @@ public class PersonEditDialogController {
     @FXML
     private void handleOk() {
         if (isInputValid()) {
-        	person = new LibraryMember( "", "", "", "", 
+        	person = new LibraryMember( memeberIDField.getText(), "", "", "", 
         			new Address(streetField.getText(),cityField.getText(),stateField.getText(),postalCodeField.getText()));
             person.setFirstName(firstNameField.getText());
             person.setLastName(lastNameField.getText());
             person.setTelephone(lastNameField.getText());
             person.setLastName(lastNameField.getText());
+            
             //person.setAddress();
 //            person.setPostalCode(Integer.parseInt());
 //            person.setCity();
