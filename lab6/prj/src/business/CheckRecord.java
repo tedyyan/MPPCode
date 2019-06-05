@@ -15,4 +15,12 @@ public class CheckRecord implements Serializable{
 	public void addReorceEntry(CheckRecordEntry entry) {
 		checkRecordEntrys.add(entry);
 	}
+	public List<CheckRecordEntry> getCheckRecordEntrys() {
+		return checkRecordEntrys;
+	}
+	
+	public void setCheckRecordEntrys(List<CheckRecordEntry> checkRecordEntrys) {
+		this.checkRecordEntrys = checkRecordEntrys;
+	}
+	
 }

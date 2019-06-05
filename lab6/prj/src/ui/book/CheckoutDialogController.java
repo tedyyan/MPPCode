@@ -14,14 +14,18 @@ import business.BookBizServiceInterface;
 import business.BookCopy;
 import business.CheckRecordEntry;
 import business.LibraryMember;
+import business.due.BookCopyDue;
 import business.person.MemberBizService;
 import business.person.MemberBizServiceInterface;
 import dataaccess.DataAccess;
 import dataaccess.DataAccessFacade;
 import dataaccess.User;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
@@ -30,7 +34,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.util.converter.NumberStringConverter;
 import ui.Start;
 
 public class CheckoutDialogController {
@@ -46,7 +49,10 @@ public class CheckoutDialogController {
 	
 	@FXML
 	private TableView<CheckRecordEntry> checkoutRecordTableView;
- 
+	
+	@FXML
+	TableColumn<CheckRecordEntry, String> column1 = new TableColumn<>();
+    
 	private Stage dialogStage;
 
 	private BookBizServiceInterface bookBizService = BookBizService.getBookBizServiceInstance();
@@ -101,7 +107,8 @@ public class CheckoutDialogController {
 		
 		bookCopy.setCheckoutRecordEntry(recordEntry);
 		bookCopy.changeAvailability();
-		checkoutRecordTableView.getItems().add(recordEntry);
+		ObservableList<CheckRecordEntry> observableList = FXCollections.observableArrayList(recordEntry);
+		checkoutRecordTableView.setItems(observableList);
 
 		resultField.setText("book checkout success!");
 	}
