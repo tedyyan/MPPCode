@@ -13,15 +13,15 @@
 				<Button layoutX="198.0" layoutY="408.0" mnemonicParsing="false" onAction="#handleDone" text="done" />
 				<TextField fx:id="isbnField" layoutX="144.0" layoutY="104.0" />
 				<Text layoutX="41.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book ISBN" />
-				<Text fx:id="resultField" layoutX="203.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="result" wrappingWidth="39.7724609375" />
+				<Text fx:id="resultField" layoutX="93.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="269.7724609375" />
             <Text layoutX="40.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member ID" />
             <TextField fx:id="memberIdField" layoutX="144.0" layoutY="31.0" />
-            <TableView layoutX="33.0" layoutY="149.0" prefHeight="200.0" prefWidth="385.0">
+            <TableView fx:id="checkoutRecordTableView" layoutX="33.0" layoutY="149.0" prefHeight="200.0" prefWidth="385.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="memberID" />
-                <TableColumn prefWidth="75.0" text="ISBN" />
-                  <TableColumn prefWidth="75.0" text="due date" />
-                  <TableColumn prefWidth="145.0" text="checkout date" />
+                <TableColumn fx:id="memberIDColumn" prefWidth="75.0" text="memberID" />
+                <TableColumn fx:id="isbnColumn" prefWidth="75.0" text="ISBN" />
+                  <TableColumn fx:id="dueDateColumn" prefWidth="75.0" text="due date" />
+                  <TableColumn fx:id="checkoutDateColumn" prefWidth="145.0" text="checkout date" />
               </columns>
             </TableView>
 			</children>
