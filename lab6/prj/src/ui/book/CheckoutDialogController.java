@@ -19,11 +19,9 @@ import business.person.MemberBizServiceInterface;
 import dataaccess.DataAccess;
 import dataaccess.DataAccessFacade;
 import dataaccess.User;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
@@ -48,15 +46,7 @@ public class CheckoutDialogController {
 	
 	@FXML
 	private TableView<CheckRecordEntry> checkoutRecordTableView;
-	@FXML
-    private TableColumn<CheckRecordEntry, String> memberIDColumn;
-	@FXML
-    private TableColumn<CheckRecordEntry, String> isbnColumn;
-	@FXML
-    private TableColumn<CheckRecordEntry, String> dueDateColumn;
-	@FXML
-    private TableColumn<CheckRecordEntry, String> checkoutDateColumn;
-	
+ 
 	private Stage dialogStage;
 
 	private BookBizServiceInterface bookBizService = BookBizService.getBookBizServiceInstance();
@@ -89,24 +79,12 @@ public class CheckoutDialogController {
 	private void handleAdd() {
 		
 		Book book = bookBizService.getBookByISBN(isbnField.getText());
-		LibraryMember member = memberBizService.FindPersonByMemberID(memberIdField.getText());
-		System.out.println(isbnField.getText());
-		System.out.println(memberIdField.getText());
-		System.out.println(book);
-		System.out.println(member);
-		if(book == null) {
-			resultField.setText("book not exit!");
-			return ;
-		}
-		if(member == null) {
-			resultField.setText("member not exit!");
+		LibraryMember member = memberBizService.FindPersonByMemberID(memberIdField.getText()); 
+		if(book == null || member == null) {
+			resultField.setText("book or member not exit!");
 			return ;
 		}
 		BookCopy bookCopy = book.getNextAvailableCopy();
-		if(bookCopy == null) {
-			resultField.setText("book copy not available!");
-			return ;
-		}
 		
 		CheckRecordEntry recordEntry = new CheckRecordEntry(new Date(), bookCopy);
 		Calendar calendar = Calendar.getInstance();
@@ -119,11 +97,6 @@ public class CheckoutDialogController {
 		bookCopy.setCheckoutRecordEntry(recordEntry);
 		bookCopy.changeAvailability();
 		
-		memberIDColumn.setCellValueFactory(cellData -> new SimpleStringProperty(memberIdField.getText()));
-		isbnColumn.setCellValueFactory(cellData -> new SimpleStringProperty(isbnField.getText()));
-		dueDateColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDueDate().toString()));
-		checkoutDateColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCheckOutDate().toString()));
-        
 		resultField.setText("book checkout success!");
 	}
 

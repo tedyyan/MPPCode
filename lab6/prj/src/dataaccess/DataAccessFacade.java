@@ -32,7 +32,10 @@ public class DataAccessFacade implements DataAccess {
 	public void saveNewMember(LibraryMember member) {
 		HashMap<String, LibraryMember> mems = readMemberMap();
 		String memberId = member.getMemberId();
-		mems.put(memberId, member);
+		if (mems!=null)
+			mems.put(memberId, member);
+		else
+			mems = new HashMap<String, LibraryMember>();
 		saveToStorage(StorageType.MEMBERS, mems);
 	}
 
@@ -56,6 +59,14 @@ public class DataAccessFacade implements DataAccess {
 		// Returns a Map with name/value pairs being
 		// memberId -> LibraryMember
 		return (HashMap<String, LibraryMember>) readFromStorage(StorageType.MEMBERS);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void removeMemberMap(String id) {
+		HashMap<String, LibraryMember> a = (HashMap<String, LibraryMember>) readFromStorage(StorageType.MEMBERS);
+		a.remove(id);
+		saveToStorage(StorageType.MEMBERS, a);
+		return ;
 	}
 
 	@SuppressWarnings("unchecked")

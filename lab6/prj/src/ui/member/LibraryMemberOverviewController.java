@@ -2,8 +2,10 @@ package ui.member;
 
 import java.io.IOException;
 
+import business.CheckRecord;
 import business.LibraryMember;
 import business.person.MemberBizService;
+import business.person.MemberBizServiceInterface;
 import dataaccess.DataAccessFacade;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -52,7 +54,8 @@ public class LibraryMemberOverviewController {
     @FXML
     private Button searchButton;
     
-    
+
+	private MemberBizServiceInterface memberBizService = MemberBizService.getInstance();
     // Reference to the main application.
     //private MainApp mainApp;
     
@@ -151,9 +154,12 @@ public class LibraryMemberOverviewController {
      */
     @FXML
     private void handleDeleteLibraryMember() {
+    	
         int selectedIndex = LibraryMemberTable.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
+        	memberBizService.removeMember(LibraryMemberTable.getItems().get(selectedIndex).getMemberId());
             LibraryMemberTable.getItems().remove(selectedIndex);
+            
         } else {
             // Nothing selected.
             Alert alert = new Alert(AlertType.WARNING);
@@ -173,12 +179,30 @@ public class LibraryMemberOverviewController {
      * details for a new LibraryMember.
      */
     @FXML
-    private void handleNewLibraryMember() {
+    private void handleCheckRecordLibraryMember() {
 //        LibraryMember tempLibraryMember = new LibraryMember();
 //        boolean okClicked = mainApp.showLibraryMemberEditDialog(tempLibraryMember);
 //        if (okClicked) {
 //            mainApp.getLibraryMemberData().add(tempLibraryMember);
 //        }
+    	int selectedIndex = LibraryMemberTable.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+        	LibraryMember checkrecord = LibraryMemberTable.getItems().get(selectedIndex);
+			CheckRecordOfOneMemberController.showCheckoutListDialog(checkrecord.getCheckrecord());
+            
+        } else {
+            // Nothing selected.
+            Alert alert = new Alert(AlertType.WARNING);
+            //alert.initOwner(mainApp.getPrimaryStage());
+            alert.initOwner(this.dialogStage);
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No LibraryMember Selected");
+            alert.setContentText("Please select a LibraryMember in the table.");
+            
+            alert.showAndWait();
+        }
+    	
+    	
     }
 
     /**
