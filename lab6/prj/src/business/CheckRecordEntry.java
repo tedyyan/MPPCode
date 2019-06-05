@@ -15,6 +15,12 @@ public class CheckRecordEntry implements Serializable{
 	
 	public CheckRecordEntry(Date checkOutDate, BookCopy bookCopy) {
 		this.bookCopy = bookCopy;
+		this.checkOutDate = checkOutDate;
+	}
+	public CheckRecordEntry(Date checkOutDate, BookCopy bookCopy, Date dueDate) {
+		this.checkOutDate = checkOutDate;
+		this.bookCopy = bookCopy;
+		this.dueDate = dueDate;
 	}
 	
 	public Date getCheckOutDate() {

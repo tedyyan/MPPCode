@@ -68,6 +68,11 @@ public class CheckoutDialogController {
 	 */
 	@FXML
 	private void initialize() {
+//		memberIDColumn.setCellValueFactory(cellData -> new SimpleStringProperty(memberIdField.getText()));
+		isbnColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getBookCopy().getBook().getIsbn()));
+		dueDateColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDueDate().toString()));
+		checkoutDateColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCheckOutDate().toString()));
+        
 	}
 
 	/**
@@ -115,12 +120,8 @@ public class CheckoutDialogController {
 		
 		bookCopy.setCheckoutRecordEntry(recordEntry);
 		bookCopy.changeAvailability();
-		
-		memberIDColumn.setCellValueFactory(cellData -> new SimpleStringProperty(memberIdField.getText()));
-		isbnColumn.setCellValueFactory(cellData -> new SimpleStringProperty(isbnField.getText()));
-		dueDateColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDueDate().toString()));
-		checkoutDateColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCheckOutDate().toString()));
-        
+		checkoutRecordTableView.getItems().add(recordEntry);
+
 		resultField.setText("book checkout success!");
 	}
 
