@@ -19,11 +19,9 @@ import business.person.MemberBizServiceInterface;
 import dataaccess.DataAccess;
 import dataaccess.DataAccessFacade;
 import dataaccess.User;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
@@ -48,15 +46,7 @@ public class CheckoutDialogController {
 	
 	@FXML
 	private TableView<CheckRecordEntry> checkoutRecordTableView;
-	@FXML
-    private TableColumn<CheckRecordEntry, String> memberIDColumn;
-	@FXML
-    private TableColumn<CheckRecordEntry, String> isbnColumn;
-	@FXML
-    private TableColumn<CheckRecordEntry, String> dueDateColumn;
-	@FXML
-    private TableColumn<CheckRecordEntry, String> checkoutDateColumn;
-	
+ 
 	private Stage dialogStage;
 
 	private BookBizServiceInterface bookBizService = BookBizService.getBookBizServiceInstance();
@@ -69,9 +59,9 @@ public class CheckoutDialogController {
 	@FXML
 	private void initialize() {
 //		memberIDColumn.setCellValueFactory(cellData -> new SimpleStringProperty(memberIdField.getText()));
-		isbnColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getBookCopy().getBook().getIsbn()));
-		dueDateColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDueDate().toString()));
-		checkoutDateColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCheckOutDate().toString()));
+//		isbnColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getBookCopy().getBook().getIsbn()));
+//		dueDateColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDueDate().toString()));
+//		checkoutDateColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCheckOutDate().toString()));
         
 	}
 
@@ -92,23 +82,14 @@ public class CheckoutDialogController {
 	 */
 	@FXML
 	private void handleAdd() {
-		LibraryMember member = memberBizService.FindPersonByMemberID(memberIdField.getText());
-		if(member == null) {
-			resultField.setText("member not exit!");
-			return ;
-		}
 		
 		Book book = bookBizService.getBookByISBN(isbnField.getText());
-		if(book == null) {
-			resultField.setText("book not exit!");
+		LibraryMember member = memberBizService.FindPersonByMemberID(memberIdField.getText()); 
+		if(book == null || member == null) {
+			resultField.setText("book or member not exit!");
 			return ;
 		}
-		
 		BookCopy bookCopy = book.getNextAvailableCopy();
-		if(bookCopy == null) {
-			resultField.setText("book copy not available!");
-			return ;
-		}
 		
 		CheckRecordEntry recordEntry = new CheckRecordEntry(new Date(), bookCopy);
 		Calendar calendar = Calendar.getInstance();

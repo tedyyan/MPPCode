@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="354.0" prefWidth="439.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.member.CheckRecordOfOneMemberController">
+   <children>
+      
+      <TableView layoutX="69.0" layoutY="24.0" prefHeight="251.0" prefWidth="301.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <ButtonBar layoutX="176.0" layoutY="233.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+        <buttons>
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#handleOk" text="OK" />
+          <Button mnemonicParsing="false" onAction="#handleOk" prefWidth="120.0" text="Cancel" />
+        </buttons>
+      </ButtonBar>
+   </children>
+</AnchorPane>

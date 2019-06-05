@@ -12,9 +12,6 @@ final public class LibraryMember extends Person implements Serializable {
 	private CheckRecord checkrecord;
 	
 	public CheckRecord getCheckrecord() {
-		if(checkrecord == null) {
-			this.checkrecord = new CheckRecord();
-		}
 		return checkrecord;
 	}
 
