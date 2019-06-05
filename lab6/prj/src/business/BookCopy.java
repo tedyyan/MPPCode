@@ -8,9 +8,11 @@ import java.io.Serializable;
 final public class BookCopy implements Serializable {
 	
 	private static final long serialVersionUID = -63976228084869815L;
+	private int copyNum;//copy ID
 	private Book book;
-	private int copyNum;
 	private boolean isAvailable;
+	private CheckRecordEntry checkoutRecordEntry;
+	
 	BookCopy(Book book, int copyNum, boolean isAvailable) {
 		this.book = book;
 		this.copyNum = copyNum;
@@ -38,6 +40,13 @@ final public class BookCopy implements Serializable {
 	
 	public void changeAvailability() {
 		isAvailable = !isAvailable;
+	}
+	
+	public CheckRecordEntry getCheckoutRecordEntry() {
+		return checkoutRecordEntry;
+	}
+	public void setCheckoutRecordEntry(CheckRecordEntry checkoutRecordEntry) {
+		this.checkoutRecordEntry = checkoutRecordEntry;
 	}
 	
 	@Override

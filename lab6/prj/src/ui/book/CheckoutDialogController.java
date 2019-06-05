@@ -84,8 +84,8 @@ public class CheckoutDialogController {
 		}
 		
 		CheckRecordEntry recordEntry = new CheckRecordEntry();
-		recordEntry.setISBN(isbnField.getText());
-		recordEntry.setMemberID(memberIdField.getText());
+		isbnField.getText();
+		memberIdField.getText();
 		recordEntry.setCheckOutDate(new Date());
 		
 		Date dueDate = new Date();

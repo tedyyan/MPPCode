@@ -1,13 +1,15 @@
 package business;
 
+import java.util.List;
+
 public class CheckRecord {
 
-	private CheckRecordEntry checkRecordEntry;
-	
-	public void setCheckRecordEntry(CheckRecordEntry checkRecordEntry) {
-		this.checkRecordEntry = checkRecordEntry;
+	private List<CheckRecordEntry> checkRecordEntrys;
+
+	public List<CheckRecordEntry> getCheckRecordEntrys() {
+		return checkRecordEntrys;
 	}
-	public CheckRecordEntry getCheckRecordEntry() {
-		return checkRecordEntry;
+	public void setCheckRecordEntrys(List<CheckRecordEntry> checkRecordEntrys) {
+		this.checkRecordEntrys = checkRecordEntrys;
 	}
 }
