@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
+
 import business.Book;
 import business.BookBizService;
 import business.BookBizServiceInterface;
@@ -93,6 +95,10 @@ public class BookDueController {
 		information.show();
 	}
 	
+	public void back() {
+		dialogStage.close();
+	}
+	
 	public void search() {
 		String textString = isbntextField.getText();
 		if (textString.equals("")) {
@@ -116,12 +122,18 @@ public class BookDueController {
 //		
 		for (BookCopy bCopy : bookCopy) {
 			CheckRecordEntry chr = bCopy.getCheckoutRecordEntry();
+//			SimpleDateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//			myBookCopyDues.add(new BookCopyDue(bCopy.getBook().getIsbn(),
+//					bCopy.getBook().getTitle(),
+//					String.valueOf(bCopy.getCopyNum()), dateFormat1.format(new Date())));
 			if (null == chr) {
 				continue;
 			}
 			if (chr.overDue(new Date(99, 2, 12))) {
 				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				myBookCopyDues.add(new BookCopyDue(bCopy.getBook().getIsbn(), bCopy.getBook().getTitle(), String.valueOf(bCopy.getCopyNum()), dateFormat.format(chr.getDueDate())));
+				myBookCopyDues.add(new BookCopyDue(bCopy.getBook().getIsbn(),
+						bCopy.getBook().getTitle(),
+						String.valueOf(bCopy.getCopyNum()), dateFormat.format(chr.getDueDate())));
 			}
 		}
 		
