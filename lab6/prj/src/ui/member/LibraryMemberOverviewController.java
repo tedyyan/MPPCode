@@ -143,7 +143,7 @@ public class LibraryMemberOverviewController {
     		 LibraryMemberTable.getItems().clear(); 
     	    } 
 		LibraryMemberTable.setItems(getLibraryMemberData(id));
-		LibraryMemberTable.refresh();
+		//LibraryMemberTable.refresh();
     }
     
     /**
