@@ -2,8 +2,11 @@ package ui.bookdue;
 
 import java.io.IOException;
 
+import business.Book;
 import business.BookBizService;
 import business.BookBizServiceInterface;
+import business.BookCopy;
+import business.CheckRecordEntry;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -50,7 +53,22 @@ public class BookDueController {
 	}
 	
 	public void search() {
-		System.out.println("sds");
+		String textString = isbntextField.getText();
+		if (textString.equals("")) {
+			return;
+		}
+		
+		
+		BookBizServiceInterface  bizService =  BookBizService.getBookBizServiceInstance();
+		Book  book = bizService.getBookByISBN(textString);
+		BookCopy[] bookCopy = book.getCopies();
+		
+		for (BookCopy bCopy: bookCopy) {
+			CheckRecordEntry chr =  bCopy.getCheckoutRecordEntry();
+			
+		}
+		
+		
 	}
 
 	
