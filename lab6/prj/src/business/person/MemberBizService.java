@@ -58,4 +58,10 @@ public class MemberBizService implements MemberBizServiceInterface {
 		
 	}
 
+	@Override
+	public void saveNewMember(LibraryMember person) {
+		data.saveNewMember(person);
+		
+	}
+
 }

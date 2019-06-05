@@ -9,4 +9,5 @@ public interface MemberBizServiceInterface {
 	public Collection<LibraryMember> getAllPersons();
 	public Collection<LibraryMember> FindPersonLikeByMemberID(String id);
 	public void removeMember(String id);
+	public void saveNewMember(LibraryMember person);
 }

@@ -1,10 +1,15 @@
 package ui.member;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import business.CheckRecord;
+import business.CheckRecordEntry;
 import business.LibraryMember;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -18,17 +23,45 @@ import ui.Start;
 
 public class CheckRecordOfOneMemberController {
 	 @FXML
-	    private TableView<LibraryMember> CheckoutTable;
+	    private TableView<WholeRecord> CheckoutTable;
 	CheckRecord checkrecord;
 	@FXML
-    private TableColumn<LibraryMember, String> bookTitleColumn;
+    private TableColumn<WholeRecord, String> bookTitleColumn;
     @FXML
-    private TableColumn<LibraryMember, String> ISBNColumn;
+    private TableColumn<WholeRecord, String> ISBNColumn;
 	@FXML
-    private TableColumn<LibraryMember, String> outDateColumn;
+    private TableColumn<WholeRecord, String> outDateColumn;
     @FXML
-    private TableColumn<LibraryMember, String> dueDateColumn;
+    private TableColumn<WholeRecord, String> dueDateColumn;
+    /**
+     * The data as an observable list of Persons.
+     */
+    private ObservableList<WholeRecord> wholeData = FXCollections.observableArrayList();
     
+    class WholeRecord{
+    	String bookTitle;
+    	public String getBookTitle() {
+			return bookTitle;
+		}
+		public String getISBN() {
+			return ISBN;
+		}
+		public String getOutDate() {
+			return outDate;
+		}
+		public String getDueDate() {
+			return dueDate;
+		}
+		String ISBN;
+    	String outDate;
+    	String dueDate;
+    	WholeRecord(String bookTitle,String ISBN,String outDate,String dueDate){
+    		this.bookTitle = bookTitle;
+    		this.ISBN = ISBN;
+    		this.outDate = outDate;
+    		this.dueDate = dueDate;
+    	}
+    }
 	public CheckRecord getCheckrecord() {
 		return checkrecord;
 	}
@@ -64,8 +97,10 @@ public class CheckRecordOfOneMemberController {
     @FXML
     private void initialize() {
         // Initialize the LibraryMember table with the two columns.
-        //firstNameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getFirstName()));
-        //lastNameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getLastName()));
+    	bookTitleColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getBookTitle()));
+    	ISBNColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getISBN()));
+    	outDateColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getOutDate()));
+    	dueDateColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDueDate()));
         
         
         
@@ -89,10 +124,10 @@ public class CheckRecordOfOneMemberController {
 			CheckRecordOfOneMemberController controller = loader.getController();
 			controller.setDialogStage(dialogStage);
 			controller.setCheckrecord(checkrecord);
-
+			controller.fillTableView(checkrecord);
 			// Set the dialog icon.
 			dialogStage.getIcons().add(new Image("file:resources/images/edit.png"));
-
+			
 			// Show the dialog and wait until the user closes it
 			dialogStage.showAndWait();
 
@@ -103,7 +138,23 @@ public class CheckRecordOfOneMemberController {
 		}
 	}
 
+	private void fillTableView(CheckRecord checkrecord2) {
+		wholeData.addAll(this.recordToWhole(checkrecord2));
+		this.CheckoutTable.setItems(wholeData);
+		
+	}
+
 	private boolean isOkClicked() {
 		return false;
+	}
+	
+	private List<WholeRecord> recordToWhole(CheckRecord cr) {
+		List<CheckRecordEntry> a = cr.getCheckRecordEntrys();
+		List<WholeRecord> result = new ArrayList<WholeRecord>();
+		for(CheckRecordEntry ele:a) {
+			result.add(new WholeRecord(ele.getBookCopy().getBook().getTitle(),ele.getBookCopy().getBook().getIsbn(),
+					ele.getCheckOutDate().toString(),ele.getCheckOutDate().toString()));
+		}
+		return result;
 	}
 }

@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import business.Address;
 import business.LibraryMember;
+import business.person.MemberBizService;
+import business.person.MemberBizServiceInterface;
 import dataaccess.DataAccessFacade;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,6 +38,7 @@ public class PersonEditDialogController {
     @FXML
     private TextField memeberIDField;
 
+	private MemberBizServiceInterface memberBizService = MemberBizService.getInstance();
 
     private Stage dialogStage;
     private LibraryMember person;
@@ -76,6 +79,7 @@ public class PersonEditDialogController {
         cityField.setText(person.getAddress().getCity());
         stateField.setText(person.getAddress().getState());
         memeberIDField.setText(person.getMemberId());
+        telephoneField.setText(person.getTelephone());
     }
 
     /**
@@ -104,7 +108,7 @@ public class PersonEditDialogController {
 //            person.setPostalCode(Integer.parseInt());
 //            person.setCity();
 //            person.setBirthday(DateUtil.parse());
-            (new DataAccessFacade()).saveNewMember(this.person);
+            memberBizService.saveNewMember(this.person);
             okClicked = true;
             dialogStage.close();
         }
