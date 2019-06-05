@@ -28,6 +28,7 @@ import javafx.stage.Stage;
 import ui.LibWindow;
 import ui.LoginWindow;
 import ui.book.AddBookCopysDialogController;
+import ui.book.AddBookDialogController;
 import ui.book.CheckoutDialogController;
 import ui.bookdue.BookDueController;
 import ui.member.LibraryMemberOverviewController;
@@ -145,7 +146,7 @@ public class MainWindow extends Stage implements LibWindow {
 		checkOut.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
-
+				CheckoutDialogController.showAddBookDialog();
 			}
 		});
 
@@ -205,7 +206,7 @@ public class MainWindow extends Stage implements LibWindow {
 		addBook.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
-				CheckoutDialogController.showAddBookDialog();
+				AddBookDialogController.showAddBookDialog();
 			}
 		});
 
