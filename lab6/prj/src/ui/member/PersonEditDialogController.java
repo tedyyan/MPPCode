@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import business.Address;
 import business.LibraryMember;
+import dataaccess.DataAccessFacade;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -29,7 +30,11 @@ public class PersonEditDialogController {
     @FXML
     private TextField cityField;
     @FXML
-    private TextField birthdayField;
+    private TextField stateField;
+    @FXML
+    private TextField telephoneField;
+    @FXML
+    private TextField memeberIDField;
 
 
     private Stage dialogStage;
@@ -66,11 +71,11 @@ public class PersonEditDialogController {
 
         firstNameField.setText(person.getFirstName());
         lastNameField.setText(person.getLastName());
-        //streetField.setText(person.getStreet());
-        //postalCodeField.setText(Integer.toString(person.getPostalCode()));
-        //cityField.setText(person.getCity());
-        //birthdayField.setText(DateUtil.format(person.getBirthday()));
-        birthdayField.setPromptText("dd.mm.yyyy");
+        streetField.setText(person.getAddress().getStreet());
+        postalCodeField.setText(person.getAddress().getZip());
+        cityField.setText(person.getAddress().getCity());
+        stateField.setText(person.getAddress().getState());
+        memeberIDField.setText(person.getMemberId());
     }
 
     /**
@@ -88,13 +93,17 @@ public class PersonEditDialogController {
     @FXML
     private void handleOk() {
         if (isInputValid()) {
+        	person = new LibraryMember( "", "", "", "", 
+        			new Address(streetField.getText(),cityField.getText(),stateField.getText(),postalCodeField.getText()));
             person.setFirstName(firstNameField.getText());
             person.setLastName(lastNameField.getText());
-            //person.setStreet(streetField.getText());
-            //person.setPostalCode(Integer.parseInt(postalCodeField.getText()));
-            //person.setCity(cityField.getText());
-            //person.setBirthday(DateUtil.parse(birthdayField.getText()));
-
+            person.setTelephone(lastNameField.getText());
+            person.setLastName(lastNameField.getText());
+            //person.setAddress();
+//            person.setPostalCode(Integer.parseInt());
+//            person.setCity();
+//            person.setBirthday(DateUtil.parse());
+            (new DataAccessFacade()).saveNewMember(this.person);
             okClicked = true;
             dialogStage.close();
         }
@@ -116,13 +125,16 @@ public class PersonEditDialogController {
     private boolean isInputValid() {
         String errorMessage = "";
 
+        if (stateField.getText() == null || stateField.getText().length() == 0) {
+            errorMessage += "No valid first name!\n"; 
+        }
         if (firstNameField.getText() == null || firstNameField.getText().length() == 0) {
             errorMessage += "No valid first name!\n"; 
         }
         if (lastNameField.getText() == null || lastNameField.getText().length() == 0) {
             errorMessage += "No valid last name!\n"; 
         }
-        /*
+        
         if (streetField.getText() == null || streetField.getText().length() == 0) {
             errorMessage += "No valid street!\n"; 
         }
@@ -141,7 +153,9 @@ public class PersonEditDialogController {
         if (cityField.getText() == null || cityField.getText().length() == 0) {
             errorMessage += "No valid city!\n"; 
         }
-
+        
+        
+        /*
         if (birthdayField.getText() == null || birthdayField.getText().length() == 0) {
             errorMessage += "No valid birthday!\n";
         } else {

@@ -21,7 +21,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import ui.main.MainWindow;
-
+import ui.member.LibraryMemberOverviewController;
 import ui.member.PersonEditDialogController;
 
 
@@ -138,7 +138,8 @@ public class LoginWindow extends Stage implements LibWindow {
         	public void handle(ActionEvent e) {
 //        		Start.hideAllWindows();
 //        		Start.primStage().show();
-        		PersonEditDialogController.showMe();
+        		//PersonEditDialogController.showMe();
+        		LibraryMemberOverviewController.showMemberOverview();
         	}
         });
         grid.add(backBtn1, 2, 7);
