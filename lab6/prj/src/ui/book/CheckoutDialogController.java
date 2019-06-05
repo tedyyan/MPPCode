@@ -114,10 +114,6 @@ public class CheckoutDialogController {
 			return ;
 		}
 		bookCopy.changeAvailability();
-		System.out.println(book);
-		for(BookCopy copy : book.getCopies()) {
-			System.out.println(copy);
-		}
 		
 		CheckRecordEntry recordEntry = new CheckRecordEntry(new Date(), bookCopy);
 		Calendar calendar = Calendar.getInstance();
@@ -131,6 +127,10 @@ public class CheckoutDialogController {
 		bookBizService.saveBook(book);
 		memberBizService.saveNewMember(member);
 		
+		System.out.println(book);
+		for(BookCopy copy : book.getCopies()) {
+			System.out.println(copy);
+		}
 		observableList.add(recordEntry);
 		checkoutRecordTableView.setItems(observableList);
 		resultField.setText("book checkout success!");
