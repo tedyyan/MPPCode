@@ -5,25 +5,25 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="491.0" prefWidth="447.0" text="checkout" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.book.CheckoutDialogController">
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="639.0" text="checkout" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.book.CheckoutDialogController">
 	<content>
-		<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="434.0" prefWidth="445.0">
+		<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="463.0" prefWidth="638.0">
 			<children>
 
-				<Button layoutX="330.0" layoutY="104.0" mnemonicParsing="false" onAction="#handleAdd" text="checkout" />
-				<Button layoutX="198.0" layoutY="408.0" mnemonicParsing="false" onAction="#handleDone" text="done" />
-				<TextField fx:id="isbnField" layoutX="144.0" layoutY="104.0" />
+				<Button layoutX="435.0" layoutY="104.0" mnemonicParsing="false" onAction="#handleAdd" text="checkout" />
+				<Button layoutX="294.0" layoutY="408.0" mnemonicParsing="false" onAction="#handleDone" text="done" />
+				<TextField fx:id="isbnField" layoutX="144.0" layoutY="104.0" prefHeight="27.0" prefWidth="248.0" />
 				<Text layoutX="41.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book ISBN" />
-				<Text fx:id="resultField" layoutX="203.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="result" wrappingWidth="39.7724609375" />
+				<Text fx:id="resultField" layoutX="149.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="388.7724609375" />
             <Text layoutX="40.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member ID" />
-            <TextField fx:id="memberIdField" layoutX="144.0" layoutY="31.0" />
+            <TextField fx:id="memberIdField" layoutX="144.0" layoutY="31.0" prefHeight="27.0" prefWidth="244.0" />
 
-            <TableView layoutX="33.0" layoutY="149.0" prefHeight="200.0" prefWidth="385.0">
+            <TableView fx:id="checkoutRecordTableView" layoutX="33.0" layoutY="149.0" prefHeight="200.0" prefWidth="579.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="memberID" />
-                <TableColumn prefWidth="75.0" text="ISBN" />
-                  <TableColumn prefWidth="75.0" text="due date" />
-                  <TableColumn prefWidth="145.0" text="checkout date" />
+                <TableColumn fx:id="memberIDColumn" prefWidth="75.0" text="memberID" />
+                <TableColumn fx:id="isbnColumn" prefWidth="88.0" text="ISBN" />
+                  <TableColumn fx:id="dueDateColumn" prefWidth="208.0" text="due date" />
+                  <TableColumn fx:id="checkoutDateColumn" prefWidth="207.0" text="checkout date" />
               </columns>
             </TableView>
 			</children>
