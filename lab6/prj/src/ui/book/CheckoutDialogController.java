@@ -87,21 +87,18 @@ public class CheckoutDialogController {
 	 */
 	@FXML
 	private void handleAdd() {
-		
-		Book book = bookBizService.getBookByISBN(isbnField.getText());
 		LibraryMember member = memberBizService.FindPersonByMemberID(memberIdField.getText());
-		System.out.println(isbnField.getText());
-		System.out.println(memberIdField.getText());
-		System.out.println(book);
-		System.out.println(member);
-		if(book == null) {
-			resultField.setText("book not exit!");
-			return ;
-		}
 		if(member == null) {
 			resultField.setText("member not exit!");
 			return ;
 		}
+		
+		Book book = bookBizService.getBookByISBN(isbnField.getText());
+		if(book == null) {
+			resultField.setText("book not exit!");
+			return ;
+		}
+		
 		BookCopy bookCopy = book.getNextAvailableCopy();
 		if(bookCopy == null) {
 			resultField.setText("book copy not available!");

@@ -9,13 +9,13 @@
 	<content>
 		<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="434.0" prefWidth="445.0">
 			<children>
-				<Button layoutX="311.0" layoutY="408.0" mnemonicParsing="false" onAction="#handleAdd" text="checkout" />
-				<Button layoutX="58.0" layoutY="408.0" mnemonicParsing="false" onAction="#handleDone" text="done" />
-				<TextField fx:id="isbnField" layoutX="144.0" layoutY="58.0" />
-				<Text layoutX="42.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book ISBN" />
-				<Text fx:id="resultField" layoutX="158.0" layoutY="426.0" strokeType="OUTSIDE" strokeWidth="0.0" text="result" wrappingWidth="138.7724609375" />
-            <Text layoutX="41.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member ID" />
-            <TextField fx:id="memberIdField" layoutX="144.0" layoutY="100.0" />
+				<Button layoutX="330.0" layoutY="104.0" mnemonicParsing="false" onAction="#handleAdd" text="checkout" />
+				<Button layoutX="198.0" layoutY="408.0" mnemonicParsing="false" onAction="#handleDone" text="done" />
+				<TextField fx:id="isbnField" layoutX="144.0" layoutY="104.0" />
+				<Text layoutX="41.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book ISBN" />
+				<Text fx:id="resultField" layoutX="203.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="result" wrappingWidth="39.7724609375" />
+            <Text layoutX="40.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member ID" />
+            <TextField fx:id="memberIdField" layoutX="144.0" layoutY="31.0" />
             <TableView layoutX="33.0" layoutY="149.0" prefHeight="200.0" prefWidth="385.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="memberID" />
