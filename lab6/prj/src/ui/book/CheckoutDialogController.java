@@ -27,9 +27,11 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -92,6 +94,17 @@ public class CheckoutDialogController {
 		this.dialogStage.getIcons().add(new Image("file:resources/images/edit.png"));
 	}
 
+	private void alert(String content) {
+		// Nothing selected.
+        Alert alert = new Alert(AlertType.WARNING);
+        //alert.initOwner(mainApp.getPrimaryStage());
+        //alert.initOwner(this.dialogStage);
+        alert.setTitle(content);
+        alert.setHeaderText(content);
+        alert.setContentText(content);
+        
+        alert.showAndWait();
+	}
 	/**
 	 * Called when the user clicks add.
 	 */
@@ -99,17 +112,17 @@ public class CheckoutDialogController {
 	private void handleAdd() {
 		LibraryMember member = memberBizService.FindPersonByMemberID(memberIdField.getText());
 		if(member == null) {
-			resultField.setText("member not exit!");
+			alert("member not exit!");
 			return ;
 		}
 		Book book = bookBizService.getBookByISBN(isbnField.getText());
 		if(book == null) {
-			resultField.setText("book not exit!");
+			alert("book not exit!");
 			return ;
 		}
 		BookCopy bookCopy = book.getNextAvailableCopy();
 		if(bookCopy == null) {
-			resultField.setText("bookCopy not available!");
+			alert("bookCopy not available!");
 			return ;
 		}
 		bookCopy.changeAvailability();
@@ -132,7 +145,7 @@ public class CheckoutDialogController {
 		}
 		observableList.add(recordEntry);
 		checkoutRecordTableView.setItems(observableList);
-		resultField.setText("book checkout success!");
+		alert("book checkout success!");
 	}
 
 	/**
