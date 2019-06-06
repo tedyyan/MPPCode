@@ -5,13 +5,25 @@ public class BookCopyDue {
 	private String title;
 	private String copyNumber;
 	private String dueDate;
+	private String currentDate;
 
-	public BookCopyDue(String isbn, String title, String copyNumber, String dueDate) {
+	public BookCopyDue(String isbn, String title, String copyNumber, String dueDate, String currentDate) {
 		this.isbn = isbn;
 		this.title = title;
 		this.copyNumber = copyNumber;
 		this.dueDate = dueDate;
+		this.currentDate = currentDate;
 	}
+	
+
+	public String getCurrentDate() {
+		return currentDate;
+	}
+
+	public void setCurrentDate(String currentDate) {
+		this.currentDate = currentDate;
+	}
+
 
 	public String getIsbn() {
 		return isbn;

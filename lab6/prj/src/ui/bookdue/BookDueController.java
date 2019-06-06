@@ -54,6 +54,9 @@ public class BookDueController {
 
 	@FXML
 	private TableColumn<BookCopyDue, String> dueDataColumn;
+	
+	@FXML
+	private TableColumn<BookCopyDue, String> currentDate;
 
 	@FXML
 	private Button searchButton;
@@ -74,8 +77,22 @@ public class BookDueController {
 		copyNumberColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCopyNumber()));
 		dueDataColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDueDate()));
 
+		currentDate.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCurrentDate()));
+
 	}
 
+	
+	/**
+     * 通过时间秒毫秒数判断两个时间的间隔
+     * @param date1
+     * @param date2
+     * @return
+     */
+    public static int differentDaysByMillisecond(Date date1,Date date2)
+    {
+        int days = (int) ((date2.getTime() - date1.getTime()) / (1000*3600*24));
+        return days;
+    }
 	/**
 	 * Sets the stage of this dialog.
 	 * 
@@ -121,9 +138,12 @@ public class BookDueController {
 		ArrayList<BookCopyDue> myBookCopyDues = new ArrayList<>();
 //		
 		for (BookCopy bCopy : bookCopy) {
+			if (bCopy.isAvailable()) {
+				continue;
+			}
 			CheckRecordEntry chr = bCopy.getCheckoutRecordEntry();
-			System.out.println("CheckRecordEntry");
-			System.out.println(chr);
+//			System.out.println("CheckRecordEntry");
+//			System.out.println(chr);
 			if (null == chr) {
 				continue;
 			}
@@ -133,7 +153,7 @@ public class BookDueController {
 				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				myBookCopyDues.add(new BookCopyDue(bCopy.getBook().getIsbn(),
 						bCopy.getBook().getTitle(),
-						String.valueOf(bCopy.getCopyNum()), dateFormat.format(chr.getDueDate())));
+						String.valueOf(bCopy.getCopyNum()), dateFormat.format(chr.getDueDate()),dateFormat.format(new Date(999, 2, 12)) ));
 			}
 		}
 		
@@ -146,7 +166,7 @@ public class BookDueController {
 	}
 
 	private ObservableList<BookCopyDue> getBookCopyDuesData(ArrayList<BookCopyDue> myBookCopyDues) {
-
+		bookCopyDues.clear();
 		bookCopyDues.addAll(myBookCopyDues);
 		return bookCopyDues;
 	}

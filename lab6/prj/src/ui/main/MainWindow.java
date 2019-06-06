@@ -41,15 +41,15 @@ import ui.member.PersonEditDialogController;
 public class MainWindow extends Stage implements LibWindow {
 	public static final MainWindow INSTANCE = new MainWindow();
 
-	private User user;
+	//private User user;
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
+//	public User getUser() {
+//		return user;
+//	}
+//
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
 
 	private boolean isInitialized = false;
 
@@ -59,7 +59,7 @@ public class MainWindow extends Stage implements LibWindow {
 	@Override
 	public void init() {
 		// TODO Auto-generated method stub
-		setUser(SystemController.getCurrentUser());
+		
 		AnchorPane root = new AnchorPane();
 
 //		root.setPadding(new Insets(25, 25, 25, 25));
@@ -67,7 +67,6 @@ public class MainWindow extends Stage implements LibWindow {
 		initMenu(root);
 		initComponent(root);
 		Scene scene = new Scene(root, 420, 375);
-
 		setScene(scene);
 		
 		
@@ -78,6 +77,7 @@ public class MainWindow extends Stage implements LibWindow {
 	
 	private void initComponent(AnchorPane root) {
 		  
+			User user = SystemController.getCurrentUser();
 	        Label userName = new Label("User Name: " + user.getId());
 //	        userName.setPadding(new Insets(40,10,10,10));	 
 	        userName.setLayoutY(40);
@@ -96,19 +96,19 @@ public class MainWindow extends Stage implements LibWindow {
 	private void initMenu(AnchorPane root) {
 		
 
-		
+		Auth auth = SystemController.getCurrentUser().getAuthorization();
 
 		VBox topContainer = new VBox();
 
 		topContainer.setId("top-container");
 		MenuBar mainMenu = new MenuBar();
 
-		if (this.user.getAuthorization() == Auth.LIBRARIAN) {
+		if (auth == Auth.LIBRARIAN) {
 			checkoutBook(mainMenu);
-		} else if (this.user.getAuthorization() == Auth.ADMIN) {
+		} else if (auth == Auth.ADMIN) {
 			addMemberMenu(mainMenu);
 			addBoosMenu(mainMenu);
-		} else if (this.user.getAuthorization() == Auth.BOTH) {
+		} else if (auth == Auth.BOTH) {
 			checkoutBook(mainMenu);
 			addMemberMenu(mainMenu);
 			addBoosMenu(mainMenu);
@@ -220,7 +220,7 @@ public class MainWindow extends Stage implements LibWindow {
 			}
 		});
 
-		MenuItem allBooks = new MenuItem("Lisr All Books");
+		MenuItem allBooks = new MenuItem("List All Books");
 		allBooks.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
