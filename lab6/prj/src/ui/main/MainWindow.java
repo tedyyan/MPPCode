@@ -4,9 +4,11 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
+import business.BookCopy;
 import business.ControllerInterface;
 import business.SystemController;
 import dataaccess.Auth;
+import dataaccess.DataAccessFacade;
 import dataaccess.User;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -264,8 +266,16 @@ public class MainWindow extends Stage implements LibWindow {
 				List<String> ids = ci.allBookIds();
 				Collections.sort(ids);
 				StringBuilder sb = new StringBuilder();
+				int cntaa = 0;
 				for(String s: ids) {
-					sb.append(s + "\n");
+					BookCopy[] tmp = (new DataAccessFacade()).readBooksMap().get(s).getCopies();
+					cntaa = 0;
+					for(BookCopy bookcopy:tmp) {
+						if(bookcopy.isAvailable() == true) {
+							cntaa++;
+						}
+					}
+					sb.append("ISBN: "+s +"\t\t\t available copy: "+ cntaa + "\n");
 				}
 				AllBooksWindow.INSTANCE.setData(sb.toString());
 				AllBooksWindow.INSTANCE.show();
