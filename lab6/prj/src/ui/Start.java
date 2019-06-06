@@ -25,6 +25,10 @@ import javafx.stage.Stage;
 
 
 public class Start extends Application {
+	static String csslocation = "ui/DarkTheme.css";
+	public static String getCSSTheme() {
+		return csslocation;
+	}
 	public static void main(String[] args) {
 		launch(args);
 	}
