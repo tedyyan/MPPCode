@@ -34,7 +34,7 @@ import ui.book.AddBookDialogController;
 public class BookDueController {
 
 	private Stage dialogStage;
-	private BookBizServiceInterface bookBizService = BookBizService.getBookBizServiceInstance();
+//	private BookBizServiceInterface bookBizService = BookBizService.getBookBizServiceInstance();
 	/**
 	 * The data as an observable list of Persons.
 	 */
@@ -80,17 +80,7 @@ public class BookDueController {
 	}
 
 	
-	/**
-     * 通过时间秒毫秒数判断两个时间的间隔
-     * @param date1
-     * @param date2
-     * @return
-     */
-    public static int differentDaysByMillisecond(Date date1,Date date2)
-    {
-        int days = (int) ((date2.getTime() - date1.getTime()) / (1000*3600*24));
-        return days;
-    }
+
 	/**
 	 * Sets the stage of this dialog.
 	 * 
@@ -196,6 +186,7 @@ public class BookDueController {
 			dialogStage.initModality(Modality.WINDOW_MODAL);
 			dialogStage.initOwner(Start.primStage());
 			Scene scene = new Scene(page);
+			scene.getStylesheets().add(Start.getCSSTheme());
 			dialogStage.setScene(scene);
 
 			// Set the person into the controller.
