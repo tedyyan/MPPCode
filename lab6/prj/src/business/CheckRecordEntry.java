@@ -37,6 +37,19 @@ public class CheckRecordEntry implements Serializable{
 	}
 	
 	public boolean overDue(Date currenDate) {
-		return dueDate.before(currenDate);
+		System.out.println("currenDate");
+		System.out.println(currenDate);
+		System.out.println("dueDate");
+		System.out.println(dueDate);
+		
+//		System.out.println( dueDate.getTime());
+//		
+//		System.out.println( currenDate.getTime());
+		
+		if ( dueDate.getTime() < currenDate.getTime()) {
+			return true;
+		}
+		
+		return false;
 	}
 }
