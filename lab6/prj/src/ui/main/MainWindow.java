@@ -154,7 +154,7 @@ public class MainWindow extends Stage implements LibWindow {
 		checkOut.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
-				CheckoutDialogController.showAddBookDialog();
+				CheckoutDialogController.showCheckoutDialog();
 			}
 		});
 
