@@ -250,7 +250,8 @@ public class LibraryMemberOverviewController {
 	    dialogStage.initOwner(Start.primStage());
 	    Scene scene = new Scene(page);
 	    dialogStage.setScene(scene);
-	
+	    scene.getStylesheets().add(Start.getCSSTheme());
+	    
 	    // Set the person into the controller.
 	    LibraryMemberOverviewController controller = loader.getController();
 	    controller.setDialogStage(dialogStage);
