@@ -91,7 +91,7 @@
 }
 
 #my-image{
-	-fx-background:#000000;
+	-fx-background:#09112F;
 	-fx-opacity:0.8;
 }
 
@@ -136,7 +136,7 @@
     -fx-border-color: #e2e2e2;
     -fx-border-width: 2;
     -fx-background-radius: 0;
-    -fx-background-color: #000000;
+    -fx-background-color: #09112F;
     -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     -fx-font-size: 11pt;
     -fx-text-fill: white;
