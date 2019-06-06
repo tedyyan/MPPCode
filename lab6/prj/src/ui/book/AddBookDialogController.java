@@ -94,6 +94,10 @@ public class AddBookDialogController {
 			resultField.setText("wrong copy Number");
 			return;
 		}
+		if(bookBizService.getBookByISBN(isbnField.getText()) != null) {
+			resultField.setText("thie book alreay exit!");
+			return ;
+		}
 		
 		Book book = new Book(isbnField.getText(), titleField.getText(),
 				maxCheckoutLength, authorList);
