@@ -5,10 +5,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="430.0" prefWidth="556.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.member.CheckRecordOfOneMemberController">
+<AnchorPane prefHeight="430.0" prefWidth="751.0" styleClass="background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.member.CheckRecordOfOneMemberController">
    <children>
       
-      <TableView fx:id="CheckoutTable" layoutX="-2.0" prefHeight="377.0" prefWidth="565.0">
+      <TableView fx:id="CheckoutTable" layoutX="78.0" layoutY="27.0" prefHeight="377.0" prefWidth="565.0" AnchorPane.leftAnchor="78.0" AnchorPane.topAnchor="27.0">
          <columns>
            <TableColumn fx:id="bookTitleColumn" prefWidth="75.0" text="Title" />
            <TableColumn fx:id="ISBNColumn" prefWidth="75.0" text="ISBN" />

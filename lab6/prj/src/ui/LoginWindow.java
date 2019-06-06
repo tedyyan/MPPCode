@@ -50,13 +50,15 @@ public class LoginWindow extends Stage implements LibWindow {
     public void init() {
         
         GridPane grid = new GridPane();
-        grid.setId("top-container");
+        grid.setId("test");
+      
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(10);
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
 
-        Text scenetitle = new Text("Login");
+        Label scenetitle = new Label("Login");
+        scenetitle.setId("login-label");
         scenetitle.setFont(Font.font("Harlow Solid Italic", FontWeight.NORMAL, 20)); //Tahoma
         grid.add(scenetitle, 0, 0, 2, 1);
 
@@ -132,21 +134,12 @@ public class LoginWindow extends Stage implements LibWindow {
         grid.add(hBack, 0, 7);
         
         
-//        Button backBtn1 = new Button("Teddy Test");
-//        backBtn1.setOnAction(new EventHandler<ActionEvent>() {
-//        	@Override
-//        	public void handle(ActionEvent e) {
-////        		Start.hideAllWindows();
-////        		Start.primStage().show();
-//        		//PersonEditDialogController.showMe();
-//        		LibraryMemberOverviewController.showMemberOverview();
-//        	}
-//        });
-//        grid.add(backBtn1, 2, 7);
+
         
         
         Scene scene = new Scene(grid);
-        scene.getStylesheets().add(getClass().getResource("library.css").toExternalForm());
+        //scene.getStylesheets().add(getClass().getResource("library.css").toExternalForm());
+		scene.getStylesheets().add(Start.getCSSTheme());
         setScene(scene);
         
     }

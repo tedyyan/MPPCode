@@ -1,5 +1,6 @@
 package dataaccess;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -17,15 +18,29 @@ import dataaccess.DataAccessFacade.StorageType;
 import utility.OSinfo;
 
 public class DataAccessFacade implements DataAccess {
-
+	
+	public static void initializeApp() {
+		StorageType type = StorageType.USERS;
+		Path path = FileSystems.getDefault().getPath(OUTPUT_DIR1, type.toString());
+		File f = path.toFile();
+		if(!f.exists()) {
+			TestData td = new TestData();
+			td.bookData();
+			td.libraryMemberData();
+			td.userData();
+		}
+	}
 	enum StorageType {
 		BOOKS, MEMBERS, USERS;
 	}
-
+/*
 	public static final String OUTPUT_DIR = System.getProperty("user.dir") + "\\src\\dataaccess\\storage";
 	public static final String OUTPUT_DIR1 = System.getProperty("user.dir")
 			+ (OSinfo.isMacOSX() ? "/src/dataaccess/storage" : "\\src\\dataaccess\\storage");
-
+*/
+	public static final String OUTPUT_DIR = System.getProperty("user.dir");
+	public static final String OUTPUT_DIR1 = System.getProperty("user.dir");
+	
 	public static final String DATE_PATTERN = "MM/dd/yyyy";
 
 	// implement: other save operations

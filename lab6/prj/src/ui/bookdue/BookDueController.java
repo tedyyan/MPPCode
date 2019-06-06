@@ -34,7 +34,7 @@ import ui.book.AddBookDialogController;
 public class BookDueController {
 
 	private Stage dialogStage;
-	private BookBizServiceInterface bookBizService = BookBizService.getBookBizServiceInstance();
+//	private BookBizServiceInterface bookBizService = BookBizService.getBookBizServiceInstance();
 	/**
 	 * The data as an observable list of Persons.
 	 */
@@ -52,6 +52,9 @@ public class BookDueController {
 
 	@FXML
 	private TableColumn<BookCopyDue, String> dueDataColumn;
+	
+	@FXML
+	private TableColumn<BookCopyDue, String> currentDate;
 
 	@FXML
 	private Button searchButton;
@@ -72,7 +75,11 @@ public class BookDueController {
 		copyNumberColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCopyNumber()));
 		dueDataColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDueDate()));
 
+		currentDate.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCurrentDate()));
+
 	}
+
+	
 
 	/**
 	 * Sets the stage of this dialog.
@@ -119,9 +126,12 @@ public class BookDueController {
 		ArrayList<BookCopyDue> myBookCopyDues = new ArrayList<>();
 //		
 		for (BookCopy bCopy : bookCopy) {
+			if (bCopy.isAvailable()) {
+				continue;
+			}
 			CheckRecordEntry chr = bCopy.getCheckoutRecordEntry();
-			System.out.println("CheckRecordEntry");
-			System.out.println(chr);
+//			System.out.println("CheckRecordEntry");
+//			System.out.println(chr);
 			if (null == chr) {
 				continue;
 			}
@@ -131,7 +141,7 @@ public class BookDueController {
 				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				myBookCopyDues.add(new BookCopyDue(bCopy.getBook().getIsbn(),
 						bCopy.getBook().getTitle(),
-						String.valueOf(bCopy.getCopyNum()), dateFormat.format(chr.getDueDate())));
+						String.valueOf(bCopy.getCopyNum()), dateFormat.format(chr.getDueDate()),dateFormat.format(new Date(999, 2, 12)) ));
 			}
 		}
 		
@@ -144,7 +154,7 @@ public class BookDueController {
 	}
 
 	private ObservableList<BookCopyDue> getBookCopyDuesData(ArrayList<BookCopyDue> myBookCopyDues) {
-
+		bookCopyDues.clear();
 		bookCopyDues.addAll(myBookCopyDues);
 		return bookCopyDues;
 	}
@@ -176,6 +186,7 @@ public class BookDueController {
 			dialogStage.initModality(Modality.WINDOW_MODAL);
 			dialogStage.initOwner(Start.primStage());
 			Scene scene = new Scene(page);
+			scene.getStylesheets().add(Start.getCSSTheme());
 			dialogStage.setScene(scene);
 
 			// Set the person into the controller.

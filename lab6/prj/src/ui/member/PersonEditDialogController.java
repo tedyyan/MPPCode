@@ -212,6 +212,8 @@ public class PersonEditDialogController {
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
 
+    	    scene.getStylesheets().add(Start.getCSSTheme());
+    	    
             // Set the person into the controller.
             PersonEditDialogController controller = loader.getController();
             controller.setDialogStage(dialogStage);
