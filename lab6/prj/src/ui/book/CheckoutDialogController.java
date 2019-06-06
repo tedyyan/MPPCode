@@ -150,7 +150,7 @@ public class CheckoutDialogController {
 		return isOkClicked;
 	}
 
-	public static boolean showAddBookDialog() {
+	public static boolean showCheckoutDialog() {
 		try {
 			// Load the fxml file and create a new stage for the popup dialog.
 			FXMLLoader loader = new FXMLLoader();

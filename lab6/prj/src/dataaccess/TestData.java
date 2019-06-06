@@ -1,3 +1,4 @@
+
 package dataaccess;
 
 import java.util.ArrayList;
@@ -56,8 +57,8 @@ public class TestData {
 	@SuppressWarnings("serial")
 	List<User> allUsers = new ArrayList<User>() {
 		{
-			add(new User("101", "111", Auth.LIBRARIAN));
-			add(new User("102", "111", Auth.ADMIN));
+			add(new User("101", "xyz", Auth.LIBRARIAN));
+			add(new User("102", "abc", Auth.ADMIN));
 			add(new User("103", "111", Auth.BOTH));
 		}
 	};
@@ -75,8 +76,10 @@ public class TestData {
 	public void bookData() {
 		allBooks.get(0).addCopy();
 		allBooks.get(0).addCopy();
+		allBooks.get(0).addCopy();
 		allBooks.get(1).addCopy();
 		allBooks.get(3).addCopy();
+		allBooks.get(2).addCopy();
 		allBooks.get(2).addCopy();
 		allBooks.get(2).addCopy();
 		DataAccessFacade.loadBookMap(allBooks);
@@ -109,3 +112,4 @@ public class TestData {
 		
 	
 }
+
