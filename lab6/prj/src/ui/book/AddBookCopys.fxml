@@ -8,9 +8,10 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="145.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.book.AddBookCopysDialogController">
 	<children>
 				<TextField fx:id="isbnField" layoutX="177.0" layoutY="59.0" prefHeight="27.0" prefWidth="219.0" />
-				<Text layoutX="47.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="input book ISBN" wrappingWidth="98.71875" />
-				<Text fx:id="resultField" layoutX="263.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="result" />
+				<Text layoutX="47.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="98.71875" />
+				<Text fx:id="resultField" fill="WHITE" layoutX="263.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="result" />
 				<Button layoutX="530.0" layoutY="59.0" mnemonicParsing="false" onAction="#handleDone" text="Back" />
 				<Button layoutX="420.0" layoutY="59.0" mnemonicParsing="false" onAction="#handleAdd" text="add copy" />
+      <Label layoutX="39.0" layoutY="64.0" text="Input book ISBN" />
 	</children>
 </AnchorPane>

@@ -156,7 +156,7 @@ public class CheckoutDialogController {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(Start.class.getResource("book/checkout.fxml"));
 			AnchorPane page = (AnchorPane) loader.load();
-			page.setId("test1");
+			page.setId("test");
 			// Create the dialog Stage.
 			Stage dialogStage = new Stage();
 			dialogStage.initModality(Modality.WINDOW_MODAL);

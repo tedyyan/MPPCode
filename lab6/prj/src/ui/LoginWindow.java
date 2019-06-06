@@ -86,7 +86,7 @@ public class LoginWindow extends Stage implements LibWindow {
         HBox messageBox = new HBox(10);
         messageBox.setAlignment(Pos.BOTTOM_RIGHT);
         messageBox.getChildren().add(messageBar);;
-        grid.add(messageBox, 1, 6);
+        grid.add(messageBox, 1, 7);
         
         
         loginBtn.setOnAction(new EventHandler<ActionEvent>() {
@@ -131,13 +131,13 @@ public class LoginWindow extends Stage implements LibWindow {
         HBox hBack = new HBox(10);
         hBack.setAlignment(Pos.BOTTOM_LEFT);
         hBack.getChildren().add(backBtn);
-        grid.add(hBack, 0, 7);
+        grid.add(hBack, 0, 4);
         
         
 
         
         
-        Scene scene = new Scene(grid);
+        Scene scene = new Scene(grid, 600, 280);
         //scene.getStylesheets().add(getClass().getResource("library.css").toExternalForm());
 		scene.getStylesheets().add(Start.getCSSTheme());
         setScene(scene);

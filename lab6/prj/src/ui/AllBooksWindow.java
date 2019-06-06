@@ -32,7 +32,7 @@ public class AllBooksWindow extends Stage implements LibWindow {
 	
 	public void init() {
 		GridPane grid = new GridPane();
-		grid.setId("top-container");
+		grid.setId("test");
 		grid.setAlignment(Pos.CENTER);
         grid.setHgap(10);
         grid.setVgap(10);
@@ -57,7 +57,7 @@ public class AllBooksWindow extends Stage implements LibWindow {
         hBack.getChildren().add(backBtn);
         grid.add(hBack, 0, 2);
 		Scene scene = new Scene(grid);
-		scene.getStylesheets().add(getClass().getResource("library.css").toExternalForm());
+		scene.getStylesheets().add(Start.getCSSTheme());
         setScene(scene);
 	}
 }
