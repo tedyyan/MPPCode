@@ -63,7 +63,7 @@
 
 .split-pane:horizontal > .split-pane-divider {
     -fx-border-color: transparent #4161AD transparent #4161AD;
-    -fx-background-color: transparent, derive(#1d1d1d,20%);
+    -fx-background-color: transparent, derive(#4161AD,20%);
 }
 
 .split-pane {
@@ -88,6 +88,13 @@
 
 #test1 {
 	-fx-background-color: #4161AD;
+}
+
+
+#test1 .text{
+	-fx-background-color: white;
+	 -fx-font-size: 14pt;
+    -fx-font-family: "Segoe UI Light";
 }
 
 

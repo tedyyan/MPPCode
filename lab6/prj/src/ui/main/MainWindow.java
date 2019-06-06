@@ -69,14 +69,14 @@ public class MainWindow extends Stage implements LibWindow {
 //		root.setStyle("-fx-background-color:#000000;");
 //		root.setLayoutX(200);
 //		root.setLayoutX(200);
-		root.setMinHeight(400);
-		root.setMinWidth(400);
+		root.setMinHeight(600);
+		root.setMinWidth(800);
 //		root.setPadding(new Insets(0, 0, 0, 0));
 
 		initMenu(root);
 		initComponent(root);
 		
-		Scene scene = new Scene(root, 420, 375);
+		Scene scene = new Scene(root, 800, 600);
 		scene.getStylesheets().add(Start.getCSSTheme());
 //		scene.getStylesheets();
 		setScene(scene);
@@ -130,7 +130,7 @@ public class MainWindow extends Stage implements LibWindow {
 		otherMenu(mainMenu);
 
 		mainMenu.setMinHeight(30);
-		mainMenu.setMinWidth(420);
+		mainMenu.setMinWidth(800);
 		
 		mainMenu.setMaxWidth(9999);
 		topContainer.getChildren().add(mainMenu);
