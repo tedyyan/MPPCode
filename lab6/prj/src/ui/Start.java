@@ -5,6 +5,7 @@ import java.util.List;
 
 import business.ControllerInterface;
 import business.SystemController;
+import dataaccess.DataAccessFacade;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -30,6 +31,7 @@ public class Start extends Application {
 		return csslocation;
 	}
 	public static void main(String[] args) {
+		DataAccessFacade.initializeApp();
 		launch(args);
 	}
 	private static Stage primStage = null;

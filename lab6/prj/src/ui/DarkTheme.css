@@ -82,6 +82,11 @@
     
 }
 
+#test1 {
+	-fx-background-color: #4161AD;
+}
+
+
 .menu-bar {
     -fx-background-color: derive(#1d1d1d,20%);
 }
