@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import business.Address;
 import business.Author;
 import business.Book;
 import business.BookBizService;
@@ -72,6 +73,10 @@ public class AddBookDialogController {
 		List<Author> authorList = new ArrayList<Author>();
 		if (authorString != null) {
 			String[] authors = authorString.split(";");
+			for (String s : authors) {				
+				Author author = new Author(s, s, s, null, s);
+				authorList.add(author);
+			}
 		}
 		String maxS = maxCheckoutLengthField.getText();
 		int maxCheckoutLength = 0;
