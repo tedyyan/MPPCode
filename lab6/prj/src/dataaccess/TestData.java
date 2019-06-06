@@ -3,15 +3,26 @@ package dataaccess;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import business.Address;
 import business.Author;
 import business.Book;
+import business.BookBizService;
+import business.BookBizServiceInterface;
+import business.BookCopy;
+import business.CheckRecordEntry;
 import business.LibraryMember;
+import business.person.MemberBizService;
+import business.person.MemberBizServiceInterface;
 
 
 public class TestData {
+
+	private BookBizServiceInterface bookBizService = BookBizService.getBookBizServiceInstance();
+	private MemberBizServiceInterface memberBizService = MemberBizService.getInstance();
+
 	List<LibraryMember> members = new ArrayList<LibraryMember>();
 	@SuppressWarnings("serial")
 	
@@ -78,6 +89,8 @@ public class TestData {
 		allBooks.get(0).addCopy();
 		allBooks.get(0).addCopy();
 		allBooks.get(1).addCopy();
+		allBooks.get(1).addCopy();
+		allBooks.get(3).addCopy();
 		allBooks.get(3).addCopy();
 		allBooks.get(2).addCopy();
 		allBooks.get(2).addCopy();
@@ -110,6 +123,24 @@ public class TestData {
 		
 	}
 		
+	public boolean checkoutAbook(Book book, LibraryMember member, Date time) {
+		BookCopy bookCopy = book.getNextAvailableCopy();
+		if(bookCopy == null) {
 	
+			return false;
+		}
+		bookCopy.changeAvailability();
+		
+		CheckRecordEntry recordEntry = new CheckRecordEntry(new Date(), bookCopy);
+		
+		recordEntry.setDueDate(time);
+		
+		member.getCheckrecord().addReorceEntry(recordEntry);
+		
+		bookCopy.setCheckoutRecordEntry(recordEntry);
+		bookBizService.saveBook(book);
+		memberBizService.saveNewMember(member);
+		return true;
+	}
 }
 

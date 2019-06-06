@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,6 +21,7 @@ import utility.OSinfo;
 public class DataAccessFacade implements DataAccess {
 	
 	public static void initializeApp() {
+		DataAccessFacade tmp = new DataAccessFacade();
 		StorageType type = StorageType.USERS;
 		Path path = FileSystems.getDefault().getPath(OUTPUT_DIR1, type.toString());
 		File f = path.toFile();
@@ -28,6 +30,8 @@ public class DataAccessFacade implements DataAccess {
 			td.bookData();
 			td.libraryMemberData();
 			td.userData();
+			td.checkoutAbook(tmp.readBooksMap().get("23-11451"),tmp.readMemberMap().get("1002"),new Date(0));
+			td.checkoutAbook(tmp.readBooksMap().get("28-12331"),tmp.readMemberMap().get("1003"),new Date(0));
 		}
 	}
 	enum StorageType {

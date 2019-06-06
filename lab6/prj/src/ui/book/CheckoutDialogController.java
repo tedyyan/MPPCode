@@ -148,6 +148,7 @@ public class CheckoutDialogController {
 		alert("book checkout success!");
 	}
 
+
 	/**
 	 * Called when the user clicks cancel.
 	 */
