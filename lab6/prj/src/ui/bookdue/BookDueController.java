@@ -135,13 +135,13 @@ public class BookDueController {
 			if (null == chr) {
 				continue;
 			}
-			System.out.println(chr.getDueDate().toString());
-			System.out.println(new Date(999, 2, 12).toString());
-			if (chr.overDue(new Date(999, 2, 12))) {
+			//System.out.println(chr.getDueDate().toString());
+			//System.out.println(new Date(999, 2, 12).toString());
+			if (chr.overDue(new Date())) {
 				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				myBookCopyDues.add(new BookCopyDue(bCopy.getBook().getIsbn(),
 						bCopy.getBook().getTitle(),
-						String.valueOf(bCopy.getCopyNum()), dateFormat.format(chr.getDueDate()),dateFormat.format(new Date(999, 2, 12)) ));
+						String.valueOf(bCopy.getCopyNum()), dateFormat.format(chr.getDueDate()),dateFormat.format(new Date()) ));
 			}
 		}
 		
