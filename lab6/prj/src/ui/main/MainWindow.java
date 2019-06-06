@@ -20,6 +20,8 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -65,18 +67,34 @@ public class MainWindow extends Stage implements LibWindow {
 		
 		Pane root = new Pane();
 		root.setId("test");
-//		root.setPrefSize(300,300);
-//		root.setStyle("-fx-background-color:#000000;");
-//		root.setLayoutX(200);
-//		root.setLayoutX(200);
-		root.setMinHeight(600);
+
+		
+		root.setMinHeight(396);
 		root.setMinWidth(800);
 //		root.setPadding(new Insets(0, 0, 0, 0));
-
+		VBox imageHolder = new VBox();
+		imageHolder.setId("my-image");
+		imageHolder.setLayoutY(20);
+		Image image = new Image("ui/main.png", 800, 396, false, false);
+		
+//		imageHolder
+        // simply displays in ImageView the image as is
+        ImageView iv = new ImageView();
+       
+//        iv.setLayoutX(0);
+//        iv.setLayoutY(80);
+//        iv.setY(800);
+        iv.setImage(image);
+        imageHolder.getChildren().add(iv);
+        imageHolder.setAlignment(Pos.CENTER);
+        
+        root.getChildren().add(imageHolder);
 		initMenu(root);
 		initComponent(root);
 		
-		Scene scene = new Scene(root, 800, 600);
+	
+		
+		Scene scene = new Scene(root, 800, 396);
 		scene.getStylesheets().add(Start.getCSSTheme());
 //		scene.getStylesheets();
 		setScene(scene);
