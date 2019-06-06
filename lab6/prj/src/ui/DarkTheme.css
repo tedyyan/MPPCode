@@ -1,5 +1,5 @@
 .background {
-    -fx-background-color: #4161AD;
+    -fx-background-color: #606060;
 }
 
 .label {
@@ -24,9 +24,9 @@
 }
 
 .table-view {
-    -fx-base: #4161AD;
-    -fx-control-inner-background: #4161AD;
-    -fx-background-color: #4161AD;
+    -fx-base: #606060;
+    -fx-control-inner-background: #606060;
+    -fx-background-color: #606060;
     -fx-table-cell-border-color: transparent;
     -fx-table-header-border-color: transparent;
     -fx-padding: 5;
@@ -62,8 +62,8 @@
 }
 
 .split-pane:horizontal > .split-pane-divider {
-    -fx-border-color: transparent #4161AD transparent #4161AD;
-    -fx-background-color: transparent, derive(#4161AD,20%);
+    -fx-border-color: transparent #606060 transparent #606060;
+    -fx-background-color: transparent, derive(#606060,20%);
 }
 
 .split-pane {
@@ -75,7 +75,7 @@
 }
 
 #test {
-	-fx-background-color: #4161AD;
+	-fx-background-color: #606060;
 }
 
 
@@ -87,13 +87,17 @@
 }
 
 #test1 {
-	-fx-background-color: #4161AD;
+	-fx-background-color: #606060;
 }
 
+#my-image{
+	-fx-background:#000000;
+	-fx-opacity:0.8;
+}
 
 #test1 .text{
 	-fx-background-color: white;
-	 -fx-font-size: 14pt;
+	 -fx-font-size: 20pt;
     -fx-font-family: "Segoe UI Light";
 }
 
@@ -132,7 +136,7 @@
     -fx-border-color: #e2e2e2;
     -fx-border-width: 2;
     -fx-background-radius: 0;
-    -fx-background-color: #039ED3;
+    -fx-background-color: #000000;
     -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     -fx-font-size: 11pt;
     -fx-text-fill: white;

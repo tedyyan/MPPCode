@@ -5,27 +5,28 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="639.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.book.CheckoutDialogController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.book.CheckoutDialogController">
 	<children>
-		<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="463.0" prefWidth="638.0">
+		<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="490.0" prefWidth="739.0">
 			<children>
 
-				<Button layoutX="435.0" layoutY="104.0" mnemonicParsing="false" onAction="#handleAdd" text="checkout" />
-				<Button layoutX="294.0" layoutY="408.0" mnemonicParsing="false" onAction="#handleDone" text="done" />
-				<TextField fx:id="isbnField" layoutX="144.0" layoutY="104.0" prefHeight="27.0" prefWidth="248.0" />
-				<Text layoutX="41.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book ISBN" />
+				<Button layoutX="36.0" layoutY="91.0" mnemonicParsing="false" onAction="#handleAdd" text="checkout" />
+				<Button layoutX="208.0" layoutY="91.0" mnemonicParsing="false" onAction="#handleDone" prefHeight="27.0" prefWidth="93.0" text="Back" />
+				<TextField fx:id="isbnField" layoutX="477.0" layoutY="31.0" prefHeight="27.0" prefWidth="248.0" />
+				<Text layoutX="400.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" />
 				<Text fx:id="resultField" layoutX="149.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="388.7724609375" />
-            <Text layoutX="40.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member ID" />
             <TextField fx:id="memberIdField" layoutX="144.0" layoutY="31.0" prefHeight="27.0" prefWidth="244.0" />
 
-            <TableView fx:id="checkoutRecordTableView" layoutX="33.0" layoutY="149.0" prefHeight="200.0" prefWidth="579.0">
+            <TableView fx:id="checkoutRecordTableView" layoutX="33.0" layoutY="149.0" prefHeight="306.0" prefWidth="681.0">
               <columns>
-                <TableColumn fx:id="memberIDColumn" prefWidth="75.0" text="memberID" />
-                <TableColumn fx:id="isbnColumn" prefWidth="88.0" text="ISBN" />
-                  <TableColumn fx:id="dueDateColumn" prefWidth="208.0" text="due date" />
-                  <TableColumn fx:id="checkoutDateColumn" prefWidth="207.0" text="checkout date" />
+                <TableColumn fx:id="memberIDColumn" prefWidth="152.0" text="memberID" />
+                <TableColumn fx:id="isbnColumn" prefWidth="146.0" text="ISBN" />
+                  <TableColumn fx:id="dueDateColumn" prefWidth="170.0" text="due date" />
+                  <TableColumn fx:id="checkoutDateColumn" prefWidth="211.0" text="checkout date" />
               </columns>
             </TableView>
+            <Label layoutX="40.0" layoutY="36.0" text="Member ID" />
+            <Label layoutX="400.0" layoutY="36.0" text="Book ISBN" />
 			</children>
 		</AnchorPane>
 	</children>

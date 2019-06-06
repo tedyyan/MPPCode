@@ -194,7 +194,7 @@ public class LibraryMemberOverviewController {
             // Nothing selected.
             Alert alert = new Alert(AlertType.WARNING);
             //alert.initOwner(mainApp.getPrimaryStage());
-            alert.initOwner(this.dialogStage);
+//            alert.initOwner(this.dialogStage);
             alert.setTitle("No Selection");
             alert.setHeaderText("No LibraryMember Selected");
             alert.setContentText("Please select a LibraryMember in the table.");
@@ -221,7 +221,7 @@ public class LibraryMemberOverviewController {
         } else {
             // Nothing selected.
             Alert alert = new Alert(AlertType.WARNING);
-            alert.initOwner(this.dialogStage);
+//            alert.initOwner(this.dialogStage);
             alert.setTitle("No Selection");
             alert.setHeaderText("No LibraryMember Selected");
             alert.setContentText("Please select a LibraryMember in the table.");

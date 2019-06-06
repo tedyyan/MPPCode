@@ -126,7 +126,7 @@ public class AddBookDialogController {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(Start.class.getResource("book/AddBook.fxml"));
 			AnchorPane page = (AnchorPane) loader.load();
-			page.setId("test1");
+			page.setId("test");
 
 			// Create the dialog Stage.
 			Stage dialogStage = new Stage();
