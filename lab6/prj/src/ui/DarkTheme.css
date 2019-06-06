@@ -70,6 +70,10 @@
     -fx-padding: 1 0 0 0;
 }
 
+#login-label{
+	 -fx-font-size: 30pt;
+}
+
 #test {
 	-fx-background-color: #4161AD;
 }
