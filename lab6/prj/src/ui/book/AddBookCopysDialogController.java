@@ -9,7 +9,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -86,13 +85,14 @@ public class AddBookCopysDialogController {
 			// Load the fxml file and create a new stage for the popup dialog.
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(Start.class.getResource("book/AddBookCopys.fxml"));
-			TitledPane page = (TitledPane) loader.load();
-
+			AnchorPane page = (AnchorPane) loader.load();
+			page.setId("test1");
 			// Create the dialog Stage.
 			Stage dialogStage = new Stage();
 			dialogStage.initModality(Modality.WINDOW_MODAL);
 			dialogStage.initOwner(Start.primStage());
 			Scene scene = new Scene(page);
+		    scene.getStylesheets().add(Start.getCSSTheme());
 			dialogStage.setScene(scene);
 
 			// Set the person into the controller.
