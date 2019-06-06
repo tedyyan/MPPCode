@@ -1,26 +1,18 @@
 package ui.book;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
 
-import business.Author;
+
 import business.Book;
 import business.BookBizService;
 import business.BookBizServiceInterface;
 import business.BookCopy;
 import business.CheckRecordEntry;
 import business.LibraryMember;
-import business.due.BookCopyDue;
 import business.person.MemberBizService;
 import business.person.MemberBizServiceInterface;
-import dataaccess.DataAccess;
-import dataaccess.DataAccessFacade;
-import dataaccess.User;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -79,7 +71,6 @@ public class CheckoutDialogController {
 		isbnColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getBookCopy().getBook().getIsbn()));
 		dueDateColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDueDate().toString()));
 		checkoutDateColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCheckOutDate().toString()));
-        
 	}
 
 	/**
@@ -94,7 +85,7 @@ public class CheckoutDialogController {
 		this.dialogStage.getIcons().add(new Image("file:resources/images/edit.png"));
 	}
 
-	private void alert(String content) {
+	private static void alert(String content) {
 		// Nothing selected.
         Alert alert = new Alert(AlertType.WARNING);
         //alert.initOwner(mainApp.getPrimaryStage());
@@ -168,7 +159,7 @@ public class CheckoutDialogController {
 		try {
 			// Load the fxml file and create a new stage for the popup dialog.
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Start.class.getResource("book/checkout.fxml"));
+			loader.setLocation(Start.class.getResource("book/Checkout.fxml"));
 			AnchorPane page = (AnchorPane) loader.load();
 			page.setId("test");
 			// Create the dialog Stage.
@@ -188,7 +179,6 @@ public class CheckoutDialogController {
 
 			// Show the dialog and wait until the user closes it
 			dialogStage.showAndWait();
-
 			return controller.isOkClicked();
 		} catch (IOException e) {
 			e.printStackTrace();
