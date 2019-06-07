@@ -66,6 +66,8 @@ public class Start extends Application {
 		VBox topContainer = new VBox();
 		topContainer.setId("top-container");
 		MenuBar mainMenu = new MenuBar();
+		
+		
 		VBox imageHolder = new VBox();
 		Image image = new Image("ui/library.jpg", 400, 300, false, false);
 
