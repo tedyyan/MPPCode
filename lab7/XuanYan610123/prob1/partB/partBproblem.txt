@@ -1,0 +1,15 @@
+In class Employee, the following function
+public boolean equals(Employee e) {
+	return e.name.equals(name) && e.salary == salary;
+}
+
+should be 
+
+public boolean equals(Object e) {
+	if (e==null) return false;
+	if(!(e instanceof Employee)) return false;
+	Employee emp = (Employee) e;
+	return emp.name.equals(name) && emp.salary == salary;
+}
+
+the function signature can't be changed.

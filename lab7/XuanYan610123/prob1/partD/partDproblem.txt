@@ -1,0 +1,5 @@
+The class Employee is used as a key of map, so it should be immutable. 
+
+User can't change Employee's properties which causes the hashCode changed which cause the map chaos.
+
+so make all attributes private, remove all set method, make class final and no method can return mutable value.

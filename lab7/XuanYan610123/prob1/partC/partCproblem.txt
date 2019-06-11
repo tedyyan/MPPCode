@@ -1,0 +1,15 @@
+In class Employee, we need to implement hashCode() function
+
+
+the function should be 
+
+@Override
+public int hashCode() {
+	int result = 17;
+	long longval = Double.doubleToLongBits(salary);
+	int salaryHash = (int) (longval ^ (longval >>> 32));
+	result += 31 * result + name.hashCode();
+	result += 31 * result + salaryHash;
+	//result += 31 * result + (visited ? 1 : 0);
+	return result;
+}
