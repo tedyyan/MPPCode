@@ -1,0 +1,5 @@
+answer C:
+ In the class Employee removeDuplicate() method, tracker.get(e).setVisited(true); 
+ this code changed the key of object of Employee in the HashMap. 
+ So the old object of Employee can not be found by next same Employee, 
+ and it mistakenly adds duplicate object.

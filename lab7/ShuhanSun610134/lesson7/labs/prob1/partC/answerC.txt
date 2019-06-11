@@ -1,0 +1,2 @@
+answer C:
+ class Employee not override Object class hashCode() method with name and salary;

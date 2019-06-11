@@ -1,0 +1,12 @@
+answer B:
+ class Employee not override Object class equals method correctly, this parameter type is Object,
+ like this:
+ 	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		if (obj == null || !(obj instanceof Employee)) {
+			return false;
+		}
+		Employee e = (Employee) obj;
+		return e.name.equals(name) && e.salary == salary;
+	}
