@@ -6,6 +6,8 @@ public class Main {
 
     public static void main(String[] args) {
         String[] names = {"Alexis", "Tim", "Kyleen", "KRISTY"};
-        Arrays.stream(names).sorted(String::compareToIgnoreCase).forEach(System.out::println);
+        Arrays.sort(names, String::compareToIgnoreCase);
+        
+        Arrays.stream(names).forEach(System.out::println);
     }
 }
