@@ -1,10 +1,10 @@
-package lab8.prob2.d;
+package lab8.day1.prob2.d;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import lab8.prob2.Product;
+import lab8.day1.prob2.Product;
 public class ProductInfo {
 	
 	public void sort(List<Product> emps) {

@@ -1,12 +1,11 @@
-package lab8.prob2.c;
+package lab8.day1.prob2.c;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import lab8.prob2.Product;
-import lab8.prob2.a.PriceComparator;
+import lab8.day1.prob2.Product;
 
 
 public class ProductInfo {

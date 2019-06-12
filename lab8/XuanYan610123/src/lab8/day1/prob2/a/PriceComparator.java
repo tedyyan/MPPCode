@@ -1,10 +1,10 @@
-package lab8.prob2.a;
+package lab8.day1.prob2.a;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import lab8.prob2.Product;
+import lab8.day1.prob2.Product;
 
 public class PriceComparator implements Comparator<Product> {
 

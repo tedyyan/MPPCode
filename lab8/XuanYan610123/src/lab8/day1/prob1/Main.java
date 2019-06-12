@@ -1,4 +1,4 @@
-package lab8.prob1;
+package lab8.day1.prob1;
 
 import java.util.ArrayList;
 import java.util.List;
