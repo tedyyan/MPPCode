@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/lab6/prj/Group2lab6.iml" filepath="$PROJECT_DIR$/lab6/prj/Group2lab6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MPPCode.iml" filepath="$PROJECT_DIR$/MPPCode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/src.iml" filepath="$PROJECT_DIR$/src/src.iml" />
+    </modules>
+  </component>
+</project>
