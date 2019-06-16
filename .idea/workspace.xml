@@ -5,31 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e500fe9-83b4-4030-87c4-8f000386b6d9" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MPPCode.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab6/prj/Group2lab6.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/lab9/ShuhanSun/Prob1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/lab9/ShuhanSun/Prob2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/lab9/ShuhanSun/Prob3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/lab9/ShuhanSun/Prob4.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/lab9/ShuhanSun/Prob5/Section.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/lab9/ShuhanSun/Prob6.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/lab9/ShuhanSun/prob10/ConstructorReference.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/lab9/ShuhanSun/prob7a/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/lab9/ShuhanSun/prob7a/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/lab9/ShuhanSun/prob7b/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/lab9/ShuhanSun/prob7b/LambdaLibrary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/lab9/ShuhanSun/prob7b/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/lab9/ShuhanSun/prob7b/TriFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/lab9/ShuhanSun/prob8/PuttingIntoPractice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/lab9/ShuhanSun/prob8/Trader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/lab9/ShuhanSun/prob8/Transaction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src/lab9/ShuhanSun/prob9/Dish.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob1/Group.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob1/GroupUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob2/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob3/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob3/CheckingAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob3/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob3/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob3/Manager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob3/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/lab6/prj/bin/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -42,32 +27,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Dish.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/src/lab9/ShuhanSun/prob9/Dish.java">
+      <file leaf-file-name="Account.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob3/Account.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="72" column="64" selection-start-line="72" selection-start-column="64" selection-end-line="72" selection-end-column="64" />
+            <state relative-caret-position="36">
+              <caret line="2" column="22" lean-forward="true" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Stream.java" pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/util/stream/Stream.java">
+      <file leaf-file-name="CheckingAccount.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob3/CheckingAccount.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="1107" column="16" selection-start-line="1107" selection-start-column="16" selection-end-line="1107" selection-end-column="16" />
+            <state relative-caret-position="36">
+              <caret line="2" column="46" lean-forward="true" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConstructorReference.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/src/lab9/ShuhanSun/prob10/ConstructorReference.java">
+      <file leaf-file-name="Employee.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob3/Employee.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-359">
-              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="-154">
+              <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob3/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="29" column="82" selection-start-line="29" selection-start-column="82" selection-end-line="29" selection-end-column="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Manager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob3/Manager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Person.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob3/Person.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" column="21" lean-forward="true" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -115,6 +124,9 @@
         <option value="$PROJECT_DIR$/src/src/lab9/ShuhanSun/prob8/PuttingIntoPractice.java" />
         <option value="$PROJECT_DIR$/src/src/lab9/ShuhanSun/prob10/ConstructorReference.java" />
         <option value="$PROJECT_DIR$/src/src/lab9/ShuhanSun/prob9/Dish.java" />
+        <option value="$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob1/GroupUtil.java" />
+        <option value="$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob2/Main.java" />
+        <option value="$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob3/Main.java" />
       </list>
     </option>
   </component>
@@ -170,24 +182,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ShuhanSun" type="462c0819:PsiDirectoryNode" />
-              <item name="prob9" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MPPCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MPPCode" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ShuhanSun" type="462c0819:PsiDirectoryNode" />
-              <item name="prob10" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MPPCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MPPCode" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ShuhanSun" type="462c0819:PsiDirectoryNode" />
-              <item name="prob10" type="462c0819:PsiDirectoryNode" />
-              <item name="ConstructorReference.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+              <item name="prob3" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -206,6 +201,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/src/lab10/ShuhanSun" />
       <recent name="$PROJECT_DIR$/src/src/lab9/ShuhanSun" />
     </key>
   </component>
@@ -221,7 +217,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Dish">
+  <component name="RunManager" selected="Application.Main (1)">
     <configuration name="ConstructorReference" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="lab9.ShuhanSun.prob10.ConstructorReference" />
       <module name="src" />
@@ -244,35 +240,35 @@
         </pattern>
       </extension>
     </configuration>
-    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="lab9.ShuhanSun.prob7b.Main" />
+    <configuration name="GroupUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lab10.ShuhanSun.prob1.GroupUtil" />
       <module name="src" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="lab9.ShuhanSun.prob7b.*" />
+          <option name="PATTERN" value="lab10.ShuhanSun.prob1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lab10.ShuhanSun.prob3.Main" />
+      <module name="src" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lab10.ShuhanSun.prob3.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="lab9.ShuhanSun.prob7a.Main" />
+      <option name="MAIN_CLASS_NAME" value="lab10.ShuhanSun.prob2.Main" />
       <module name="src" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="lab9.ShuhanSun.prob7a.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-    </configuration>
-    <configuration name="PuttingIntoPractice" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="lab9.ShuhanSun.prob8.PuttingIntoPractice" />
-      <module name="src" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="lab9.ShuhanSun.prob8.*" />
+          <option name="PATTERN" value="lab10.ShuhanSun.prob2.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -319,19 +315,19 @@
       <listeners />
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
-      <item itemvalue="Application.Main (1)" />
-      <item itemvalue="Application.PuttingIntoPractice" />
       <item itemvalue="Application.ConstructorReference" />
       <item itemvalue="Application.Dish" />
+      <item itemvalue="Application.GroupUtil" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Main (1)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Dish" />
-        <item itemvalue="Application.ConstructorReference" />
-        <item itemvalue="Application.PuttingIntoPractice" />
         <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.GroupUtil" />
+        <item itemvalue="Application.Dish" />
+        <item itemvalue="Application.ConstructorReference" />
       </list>
     </recent_temporary>
   </component>
@@ -346,12 +342,12 @@
       <option name="presentableId" value="Default" />
       <updated>1560700004758</updated>
       <workItem from="1560700006151" duration="1399000" />
-      <workItem from="1560701516437" duration="6147000" />
+      <workItem from="1560701516437" duration="9377000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7546000" />
+    <option name="totallyTimeSpent" value="10776000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -366,12 +362,12 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.15586206" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.15448275" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32965517" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12520194" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1615509" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -596,8 +592,74 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/src/lab9/ShuhanSun/prob9/Dish.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="72" column="64" selection-start-line="72" selection-start-column="64" selection-end-line="72" selection-end-column="64" />
+        <state relative-caret-position="472">
+          <caret line="70" column="53" lean-forward="true" selection-start-line="70" selection-start-column="53" selection-end-line="70" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob1/GroupUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="28" lean-forward="true" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob1/Group.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob2/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="20" column="28" lean-forward="true" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob3/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="22" lean-forward="true" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob3/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="21" lean-forward="true" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob3/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-154">
+          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob3/CheckingAccount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="46" lean-forward="true" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob3/Manager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/src/lab10/ShuhanSun/prob3/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="29" column="82" selection-start-line="29" selection-start-column="82" selection-end-line="29" selection-end-column="82" />
         </state>
       </provider>
     </entry>
