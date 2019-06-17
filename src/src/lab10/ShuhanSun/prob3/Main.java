@@ -26,12 +26,23 @@ public class Main {
         return false;
     }
 
-    public static <T extends Person> boolean contains3(List<? extends Person> list, T e,
-                                    BiPredicate<? extends Person, ? extends Person> pred) {
-        for (Person emp : list) {
-            if (emp == null && e == null) return true;
-            if (emp == null || e == null) continue;
-            if (pred.test(emp, e)) return true;
+    public static <T extends Person> boolean contains3(List<T> list, T e,
+                                    BiPredicate<? super T, ? super T> pred) {
+        for (T o : list) {
+            if (o == null && e == null) return true;
+            if (o == null || e == null) continue;
+            if (pred.test(o, e)) return true;
+        }
+        return false;
+
+    }
+
+    public static  boolean contains4(List<? extends Account> list, Account e,
+                                                        BiPredicate<Account, Account> pred) {
+        for (Account o : list) {
+            if (o == null && e == null) return true;
+            if (o == null || e == null) continue;
+            if (pred.test(o, e)) return true;
         }
         return false;
 
@@ -84,16 +95,18 @@ public class Main {
         list.add(new CheckingAccount(1003, 125.00));
 
         Account a = new CheckingAccount(1002, 35.00);
-//		boolean foundIt = Main.contains4(list, a, 
-//			(Account a1, Account a2) -> a1.getAcctId()==a2.getAcctId());
-//		System.out.println(foundIt);		
+		boolean foundIt = Main.contains4(list, a,
+                (Account a1, Account a2) -> a1.getAcctId()==a2.getAcctId());
+		System.out.println(foundIt);
     }
 
 
     public static void main(String[] args) {
+        test1();
         test2();
         test3();
         test4();
+        test5();
 
     }
 
