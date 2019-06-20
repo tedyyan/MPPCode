@@ -19,6 +19,10 @@ public class Prob6 {
 Example: The union method should transform the list [{“A”, “B”}, {“D”}, {“1”, “3”, “5”}]
  to the set {“A”, “B”, “D”, “1”, “3”, “5”}.*/
     public Set<String> union(List<Set<String>> sets){
-        return sets.stream().flatMap(Collection::stream).collect(Collectors.toSet());
+               return sets.stream().reduce((a, b) -> {
+                    a.addAll(b);
+                    return a;
+                }
+        ).get();
     }
 }
