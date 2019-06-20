@@ -18,15 +18,17 @@ public class Main {
 		                  new Employee("Thomas", "Blake", 111000),
 		                  new Employee("Alice", "Richards", 101000),
 		                  new Employee("Donald", "Trump", 100000));
-		Integer salaryInteger = 1000;
+		Integer salaryInteger = 100000;
 		Character startC = 'M';
 		Character endC = 'Z';
 		final BiFunction<List<Employee>,Integer,String> lamdalibFunction = 
 				(list2,s)-> 
 					 list2.stream().filter(x -> x.getSalary() > s).filter(x -> x.getLastName().charAt(0) > 'M')
-						.filter(x -> x.getLastName().charAt(0) < ('Z' + 1)).map(x -> x.getLastName() + " " + x.getFirstName())
+						.filter(x -> x.getLastName().charAt(0) < ('Z' + 1)).map(x -> x.getFirstName() + " " + x.getLastName())
 						.sorted().collect(Collectors.joining(","));
 		System.out.println(lamdalibFunction.apply(list,salaryInteger));
+		//Result
+		//Alice Richards,Joe Stevens,John Sims,Steven Walters
 	}
 
 }

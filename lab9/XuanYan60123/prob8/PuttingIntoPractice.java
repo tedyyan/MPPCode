@@ -65,6 +65,7 @@ public class PuttingIntoPractice {
 		System.out.println("-------------------------------");
 		System.out.println(transactions.stream().collect(Collectors.summarizingInt(x -> x.getValue())).getMax());
 
+//Result:
 //		-------------------------------
 //		{Trader:Mario in Milan, year: 2012, value:700}
 //		{Trader:Mario in Milan, year: 2012, value:710}

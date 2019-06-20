@@ -13,10 +13,13 @@ public class Main {
 				new Employee("Donald", "Trump", 100000));
 
 		// your stream pipeline here
-		String a = list.stream().filter(x -> x.getSalary() > 1000).filter(x -> x.getLastName().charAt(0) > 'M')
-				.filter(x -> x.getLastName().charAt(0) < ('Z' + 1)).map(x -> x.getLastName() + " " + x.getFirstName())
+		String a = list.stream().filter(x -> x.getSalary() > 100000).filter(x -> x.getLastName().charAt(0) > 'M')
+				.filter(x -> x.getLastName().charAt(0) < ('Z' + 1)).map(x -> x.getFirstName() + " " + x.getLastName() )
 				.sorted().collect(Collectors.joining(","));
 		System.out.print(a);
+		
+		//result
+		//Alice Richards,Joe Stevens,John Sims,Steven Walters
 	}
 
 }
